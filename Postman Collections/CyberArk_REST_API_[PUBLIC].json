@@ -1890,10 +1890,28 @@
 				}
 			],
 			"id": "0A9FFDBE-C1A8-4BD8-9314-D7DA231FFE82",
-			"auth": {
-				"type": "bearer",
-				"bearer": {}
-			}
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2f623e9d-20f7-41f8-93ef-39a802476830",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a958ec2-154a-49b8-a53c-2bfa981acb50",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Endpoint Privilege Manager (EPM)",
