@@ -785,7 +785,27 @@
 												"key": "Authorization"
 											}
 										],
-										"url": "{{conjurHostname}}/secrets/{{conjurAccount}}/variable/{{conjurSecretID}}",
+										"url": {
+											"raw": "{{conjurHostname}}/secrets/{{conjurAccount}}/variable/{{conjurSecretID}}",
+											"host": [
+												"{{conjurHostname}}"
+											],
+											"path": [
+												"secrets",
+												"{{conjurAccount}}",
+												"variable",
+												"{{conjurSecretID}}"
+											],
+											"query": [
+												{
+													"key": "version",
+													"value": "1",
+													"description": "Versions ascend from first value (1 = first value)",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
 										"description": "Fetches the value of a secret from the specified Variable. The latest version will be retrieved unless the version parameter is specified. The twenty most recent secret versions are retained.\n\nThe secret data is returned in the response body.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources."
 									},
 									"response": []
