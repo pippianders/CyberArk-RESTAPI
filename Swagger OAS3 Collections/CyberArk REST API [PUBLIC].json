@@ -29119,8 +29119,8 @@
     "PasswordauthenticationRequest": {
       "title": "PasswordauthenticationRequest",
       "example": {
-        "SessionId": "{{identitySessionId}}",
-        "MechanismId": "{{identityMechanismId}}",
+        "SessionId": "{{identitySessionID}}",
+        "MechanismId": "{{identityMechanismID}}",
         "Action": "Answer",
         "Answer": "{{identityPassword}}"
       },
@@ -53617,7 +53617,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1666281266"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1666281282"
       },
       "type": "object",
       "properties": {
@@ -53632,7 +53632,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1666281266"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1666281282"
       },
       "type": "object",
       "properties": {
