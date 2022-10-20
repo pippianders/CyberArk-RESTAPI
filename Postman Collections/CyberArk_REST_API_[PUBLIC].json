@@ -1880,7 +1880,7 @@
 											"script": {
 												"id": "aeec5f3b-9e5c-4b81-9456-f2be33d1771c",
 												"exec": [
-													"pm.environment.set(\"conjurToken\", pm.response.text());",
+													"pm.environment.set(\"conjurSessionToken\", pm.response.text());",
 													"pm.test(\"response is ok\", function () {",
 													"    pm.response.to.not.be.error;",
 													"});"
