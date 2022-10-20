@@ -22734,8 +22734,8 @@ definitions:
   PasswordauthenticationRequest:
     title: PasswordauthenticationRequest
     example:
-      SessionId: '{{identitySessionId}}'
-      MechanismId: '{{identityMechanismId}}'
+      SessionId: '{{identitySessionID}}'
+      MechanismId: '{{identityMechanismID}}'
       Action: Answer
       Answer: '{{identityPassword}}'
     type: object
@@ -22756,8 +22756,8 @@ definitions:
   SendemailwithcodeRequest:
     title: SendemailwithcodeRequest
     example:
-      SessionId: '{{identitySessionId}}'
-      MechanismId: '{{identityMechanismId2}}'
+      SessionId: '{{identitySessionID}}'
+      MechanismId: '{{identityMechanismID2}}'
       Action: StartOOB
     type: object
     properties:
@@ -40577,7 +40577,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1666281264
+      Reason: Automatically accepted via CyberArk Web Services on 1666281292
     type: object
     properties:
       Reason:
@@ -40587,7 +40587,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1666281264
+      Reason: Rejected automatically by CyberArk Web Services on 1666281292
     type: object
     properties:
       Reason:
