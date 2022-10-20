@@ -1778,7 +1778,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"SessionId\": \"{{identitySessionId}}\",\n    \"MechanismId\": \"{{identityMechanismId}}\",\n    \"Action\": \"Answer\",\n    \"Answer\": \"{{identityPassword}}\"\n}"
+											"raw": "{\n    \"SessionId\": \"{{identitySessionID}}\",\n    \"MechanismId\": \"{{identityMechanismID}}\",\n    \"Action\": \"Answer\",\n    \"Answer\": \"{{identityPassword}}\"\n}"
 										},
 										"url": "{{identityTenantURL}}/Security/AdvanceAuthentication"
 									},
