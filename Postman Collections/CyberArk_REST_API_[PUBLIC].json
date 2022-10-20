@@ -1714,9 +1714,9 @@
 											"script": {
 												"id": "3eb7d97d-2fc2-41b2-baae-b980c4cabfbf",
 												"exec": [
-													"pm.environment.set(\"identitySessionId\", pm.response.json().Result.SessionId);",
-													"pm.environment.set(\"identityMechanismId\", pm.response.json().Result.Challenges[0].Mechanisms[0].MechanismId);",
-													"pm.environment.set(\"identityMechanismId2\", pm.response.json().Result.Challenges[1].Mechanisms[0].MechanismId);"
+													"pm.environment.set(\"identitySessionID\", pm.response.json().Result.SessionId);",
+													"pm.environment.set(\"identityMechanismID\", pm.response.json().Result.Challenges[0].Mechanisms[0].MechanismId);",
+													"pm.environment.set(\"identityMechanismID2\", pm.response.json().Result.Challenges[1].Mechanisms[0].MechanismId);"
 												],
 												"type": "text/javascript"
 											}
