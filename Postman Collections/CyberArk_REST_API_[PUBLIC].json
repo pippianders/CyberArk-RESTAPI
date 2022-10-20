@@ -1893,7 +1893,7 @@
 												}
 											]
 										},
-										"url": "{{conjurHostname}}/api/authn-oidc/cyberark/{{conjurAccount}}/authenticate"
+										"url": "{{conjurHostname}}/authn-oidc/cyberark/{{conjurAccount}}/authenticate"
 									},
 									"response": []
 								}
