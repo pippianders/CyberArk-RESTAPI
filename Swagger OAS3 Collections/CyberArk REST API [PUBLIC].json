@@ -29149,8 +29149,8 @@
     "SendemailwithcodeRequest": {
       "title": "SendemailwithcodeRequest",
       "example": {
-        "SessionId": "{{identitySessionId}}",
-        "MechanismId": "{{identityMechanismId2}}",
+        "SessionId": "{{identitySessionID}}",
+        "MechanismId": "{{identityMechanismID2}}",
         "Action": "StartOOB"
       },
       "type": "object",
@@ -53617,7 +53617,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1666281282"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1666281292"
       },
       "type": "object",
       "properties": {
@@ -53632,7 +53632,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1666281282"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1666281292"
       },
       "type": "object",
       "properties": {
