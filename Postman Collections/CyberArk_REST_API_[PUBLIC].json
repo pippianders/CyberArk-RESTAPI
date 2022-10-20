@@ -1804,7 +1804,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"SessionId\": \"{{identitySessionId}}\",\n    \"MechanismId\": \"{{identityMechanismId2}}\",\n    \"Action\": \"StartOOB\"\n}"
+											"raw": "{\n    \"SessionId\": \"{{identitySessionID}}\",\n    \"MechanismId\": \"{{identityMechanismID2}}\",\n    \"Action\": \"StartOOB\"\n}"
 										},
 										"url": "{{identityTenantURL}}/Security/AdvanceAuthentication"
 									},
