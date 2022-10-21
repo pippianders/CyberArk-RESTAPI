@@ -1776,7 +1776,12 @@
 											"script": {
 												"id": "5c5dfcc2-12d9-4410-a004-2e3d48eed009",
 												"exec": [
-													"pm.environment.set(\"identityToken\", pm.response.json().Result.Token);"
+													"const jsonData = pm.response.json().Result",
+													"",
+													"pm.test(\"Identity Token Exists\", function() {",
+													"    pm.assert(jsonData).to.have.property('SessionId');",
+													"    pm.environment.set(\"identityToken\", jsonData.Token);",
+													"});"
 												],
 												"type": "text/javascript"
 											}
