@@ -1779,7 +1779,7 @@
 													"const jsonData = pm.response.json().Result",
 													"",
 													"pm.test(\"Identity Token Exists\", function() {",
-													"    pm.assert(jsonData).to.have.property('Token');",
+													"    pm.expect(jsonData).to.have.property('Token');",
 													"    pm.environment.set(\"identityToken\", jsonData.Token);",
 													"});"
 												],
