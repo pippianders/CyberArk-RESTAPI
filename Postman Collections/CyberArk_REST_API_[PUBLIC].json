@@ -431,7 +431,11 @@
 											"script": {
 												"id": "e08cbf13-604e-47f7-b8b9-d534b49b4160",
 												"exec": [
-													"postman.setEnvironmentVariable(\"conjurSessionToken\", responseBody);"
+													"pm.test(\"Response is OK\", function () {",
+													"    pm.response.to.not.be.error;",
+													"});",
+													"",
+													"pm.environment.set(\"conjurSessionToken\", pm.response.text());"
 												],
 												"type": "text/javascript"
 											},
