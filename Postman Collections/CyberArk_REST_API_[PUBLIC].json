@@ -20565,7 +20565,7 @@
 														}
 													]
 												},
-												"description": "This method returns the details of recordings of PSM, PSMP or OPM sessions."
+												"description": "This method returns the details of recordings of PSM, PSMP or OPM sessions.\n\nThe Duration returned is in seconds. The FileSize returned is in bytes."
 											},
 											"response": []
 										},
