@@ -13913,7 +13913,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "example": "{\n    \"reason\": \"<Reason>\",\n    \"TicketingSystemName\": \"<Ticketing system>\",\n    \"TicketId\": \"<Ticketid>\",\n    \"Version\": <version number>,\n    \"ActionType\": \"<action type - show\\copy\\connect>\n    \"isUse\": <true\\false>,\n    \"Machine\": \"<my remote machine address>\"\n}",
+              "example": "{\n    \"reason\": \"<Reason>\",\n    \"TicketingSystem\": \"<Ticketing system>\",\n    \"TicketId\": \"<Ticketid>\",\n    \"Version\": <version number>,\n    \"ActionType\": \"<action type - show\\copy\\connect>\n    \"isUse\": <true\\false>,\n    \"Machine\": \"<my remote machine address>\"\n}",
               "type": "string"
             }
           },
@@ -53617,7 +53617,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1666362922"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1667396000"
       },
       "type": "object",
       "properties": {
@@ -53632,7 +53632,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1666362922"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1667396000"
       },
       "type": "object",
       "properties": {
