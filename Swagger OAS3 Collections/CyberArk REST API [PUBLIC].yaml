@@ -948,10 +948,10 @@ paths:
           headers: {}
   /:
     get:
-      summary: Get Group Members
+      summary: Add Group Member
       tags:
       - Group Members
-      operationId: GetGroupMembers
+      operationId: AddGroupMember
       deprecated: false
       produces:
       - application/json
@@ -40595,7 +40595,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1667848269
+      Reason: Automatically accepted via CyberArk Web Services on 1667848556
     type: object
     properties:
       Reason:
@@ -40605,7 +40605,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1667848269
+      Reason: Rejected automatically by CyberArk Web Services on 1667848556
     type: object
     properties:
       Reason:
