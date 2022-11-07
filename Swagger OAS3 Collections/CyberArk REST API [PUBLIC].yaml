@@ -946,6 +946,20 @@ paths:
         '200':
           description: ''
           headers: {}
+  /:
+    get:
+      summary: New Request
+      tags:
+      - Group Members
+      operationId: NewRequest
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
   /policies/{conjurAccount}/policy/{conjurPolicyID}:
     post:
       description: Adds data to the existing Conjur policy. Deletions are not allowed. Any policy objects that exist on the server but are omitted from the policy file will not be deleted and any explicit deletions in the policy file will result in an error.
@@ -40581,7 +40595,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1667848241
+      Reason: Automatically accepted via CyberArk Web Services on 1667848254
     type: object
     properties:
       Reason:
@@ -40591,7 +40605,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1667848241
+      Reason: Rejected automatically by CyberArk Web Services on 1667848254
     type: object
     properties:
       Reason:
@@ -42271,6 +42285,7 @@ tags:
 - name: Central Credential Provider (CCP)
 - name: Rotate
 - name: Authentication
+- name: Group Members
 - name: Policy
 - name: Secrets
 - name: Self-Hosted Enterprise
