@@ -897,6 +897,11 @@
 							"id": "6FF648AD-934C-443A-A0F6-707F34DEB6FE"
 						},
 						{
+							"name": "New Folder",
+							"item": [],
+							"id": "bcb2b3a7-cdde-41d3-b097-a9db2be33084"
+						},
+						{
 							"name": "Health",
 							"id": "3e37cb58-26c5-4f0d-ae0b-0b421fb2f24c",
 							"protocolProfileBehavior": {
