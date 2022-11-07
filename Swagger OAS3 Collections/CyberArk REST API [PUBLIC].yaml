@@ -997,6 +997,56 @@ paths:
           description: ''
           headers: {}
       security: []
+    delete:
+      summary: Delete Group Member
+      tags:
+      - Group Members
+      operationId: DeleteGroupMember
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: members
+        in: query
+        required: true
+        type: array
+        items:
+          type: string
+        description: Do not edit.  Required.
+      - name: member
+        in: query
+        required: true
+        type: string
+        description: The resource to remove as a member of the group.
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Content-Type
+        in: header
+        required: false
+        enum:
+        - application/json
+        type: string
+        description: ''
+      - name: conjurAccount
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: conjurGroupID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
   /policies/{conjurAccount}/policy/{conjurPolicyID}:
     post:
       description: Adds data to the existing Conjur policy. Deletions are not allowed. Any policy objects that exist on the server but are omitted from the policy file will not be deleted and any explicit deletions in the policy file will result in an error.
@@ -40632,7 +40682,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1667848649
+      Reason: Automatically accepted via CyberArk Web Services on 1667848675
     type: object
     properties:
       Reason:
@@ -40642,7 +40692,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1667848649
+      Reason: Rejected automatically by CyberArk Web Services on 1667848675
     type: object
     properties:
       Reason:
