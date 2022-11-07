@@ -506,56 +506,6 @@
 							"name": "Group Members",
 							"item": [
 								{
-									"name": "Add Group Member",
-									"id": "f8cdfd03-e870-48d6-8389-076feb69f4a8",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Token token=\"{{conjurSessionToken}}\"",
-												"type": "text"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "{{conjurHostname}}/api/roles/{{conjurAccount}}/group/{{conjurGroupID}}?members=%5B%5D&member={{conjurHostID}}",
-											"host": [
-												"{{conjurHostname}}"
-											],
-											"path": [
-												"api",
-												"roles",
-												"{{conjurAccount}}",
-												"group",
-												"{{conjurGroupID}}"
-											],
-											"query": [
-												{
-													"key": "members",
-													"value": "%5B%5D",
-													"description": "Do not edit.  Required.",
-													"type": "text"
-												},
-												{
-													"key": "member",
-													"value": "{{conjurHostID}}",
-													"description": "The resource to add as a member of the group.",
-													"type": "text"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
 									"name": "Get Group Members",
 									"id": "560323e5-d339-46d6-a887-e26681906286",
 									"protocolProfileBehavior": {
@@ -576,6 +526,54 @@
 											}
 										],
 										"url": "{{conjurHostname}}/api/roles/{{conjurAccount}}/group/{{conjurGroupID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "Add Group Member",
+									"id": "f8cdfd03-e870-48d6-8389-076feb69f4a8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token token=\"{{conjurSessionToken}}\"",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{conjurHostname}}/api/roles/{{conjurAccount}}/group/{{conjurGroupID}}?members=%5B%5D&member={{conjurAccount}}:host:{{conjurHostID}}",
+											"host": [
+												"{{conjurHostname}}"
+											],
+											"path": [
+												"api",
+												"roles",
+												"{{conjurAccount}}",
+												"group",
+												"{{conjurGroupID}}"
+											],
+											"query": [
+												{
+													"key": "members",
+													"value": "%5B%5D",
+													"description": "Do not edit.  Required."
+												},
+												{
+													"key": "member",
+													"value": "{{conjurAccount}}:host:{{conjurHostID}}",
+													"description": "The resource to add as a member of the group."
+												}
+											]
+										}
 									},
 									"response": []
 								},
