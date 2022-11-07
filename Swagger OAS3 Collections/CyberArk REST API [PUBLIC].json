@@ -22689,7 +22689,7 @@
     },
     "/passwordvault/api/recordings": {
       "get": {
-        "description": "This method returns the details of recordings of PSM, PSMP or OPM sessions.",
+        "description": "This method returns the details of recordings of PSM, PSMP or OPM sessions.\n\nThe Duration returned is in seconds. The FileSize returned is in bytes.",
         "summary": "Get Recordings",
         "tags": [
           "Recordings"
@@ -53617,7 +53617,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1667396000"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1667848189"
       },
       "type": "object",
       "properties": {
@@ -53632,7 +53632,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1667396000"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1667848189"
       },
       "type": "object",
       "properties": {
