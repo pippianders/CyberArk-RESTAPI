@@ -1241,6 +1241,77 @@
           }
         },
         "security": []
+      },
+      "delete": {
+        "summary": "Delete Group Member",
+        "tags": [
+          "Group Members"
+        ],
+        "operationId": "DeleteGroupMember",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "members",
+            "in": "query",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Do not edit.  Required."
+          },
+          {
+            "name": "member",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "The resource to remove as a member of the group."
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "conjurAccount",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "conjurGroupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
       }
     },
     "/policies/{conjurAccount}/policy/{conjurPolicyID}": {
@@ -53690,7 +53761,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1667848664"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1667848675"
       },
       "type": "object",
       "properties": {
@@ -53705,7 +53776,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1667848664"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1667848675"
       },
       "type": "object",
       "properties": {
