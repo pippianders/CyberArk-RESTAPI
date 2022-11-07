@@ -562,7 +562,7 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "POST",
+										"method": "GET",
 										"header": [
 											{
 												"key": "Authorization",
@@ -575,33 +575,7 @@
 												"type": "text"
 											}
 										],
-										"url": {
-											"raw": "{{conjurHostname}}/api/roles/{{conjurAccount}}/group/{{conjurGroupID}}?members=%5B%5D&member={{conjurHostID}}",
-											"host": [
-												"{{conjurHostname}}"
-											],
-											"path": [
-												"api",
-												"roles",
-												"{{conjurAccount}}",
-												"group",
-												"{{conjurGroupID}}"
-											],
-											"query": [
-												{
-													"key": "members",
-													"value": "%5B%5D",
-													"description": "Do not edit.  Required.",
-													"type": "text"
-												},
-												{
-													"key": "member",
-													"value": "{{conjurHostID}}",
-													"description": "The resource to add as a member of the group.",
-													"type": "text"
-												}
-											]
-										}
+										"url": "{{conjurHostname}}/api/roles/{{conjurAccount}}/group/{{conjurGroupID}}"
 									},
 									"response": []
 								},
