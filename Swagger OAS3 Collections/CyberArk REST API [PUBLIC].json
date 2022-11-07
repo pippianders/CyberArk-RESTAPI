@@ -1172,11 +1172,11 @@
     },
     "/": {
       "get": {
-        "summary": "New Request",
+        "summary": "Add Group Member",
         "tags": [
           "Group Members"
         ],
-        "operationId": "NewRequest",
+        "operationId": "AddGroupMember",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -53637,7 +53637,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1667848254"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1667848556"
       },
       "type": "object",
       "properties": {
@@ -53652,7 +53652,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1667848254"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1667848556"
       },
       "type": "object",
       "properties": {
