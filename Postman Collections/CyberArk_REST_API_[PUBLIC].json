@@ -503,6 +503,24 @@
 							"id": "169B7D99-8579-4ADF-9188-D7541CDEB482"
 						},
 						{
+							"name": "Group Members",
+							"item": [
+								{
+									"name": "New Request",
+									"id": "f8cdfd03-e870-48d6-8389-076feb69f4a8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								}
+							],
+							"id": "bcb2b3a7-cdde-41d3-b097-a9db2be33084"
+						},
+						{
 							"name": "Policy",
 							"item": [
 								{
@@ -895,11 +913,6 @@
 								}
 							],
 							"id": "6FF648AD-934C-443A-A0F6-707F34DEB6FE"
-						},
-						{
-							"name": "Group Members",
-							"item": [],
-							"id": "bcb2b3a7-cdde-41d3-b097-a9db2be33084"
 						},
 						{
 							"name": "Health",
