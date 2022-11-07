@@ -506,7 +506,7 @@
 							"name": "Group Members",
 							"item": [
 								{
-									"name": "New Request",
+									"name": "Get Group Members",
 									"id": "f8cdfd03-e870-48d6-8389-076feb69f4a8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
