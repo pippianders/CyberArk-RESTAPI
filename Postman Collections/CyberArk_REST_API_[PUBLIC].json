@@ -598,7 +598,7 @@
 											}
 										],
 										"url": {
-											"raw": "{{conjurHostname}}/api/roles/{{conjurAccount}}/group/{{conjurGroupID}}?members=%5B%5D&member={{conjurHostID}}",
+											"raw": "{{conjurHostname}}/api/roles/{{conjurAccount}}/group/{{conjurGroupID}}?members=%5B%5D&member={{conjurAccount}}:host:{{conjurHostID}}",
 											"host": [
 												"{{conjurHostname}}"
 											],
@@ -617,7 +617,7 @@
 												},
 												{
 													"key": "member",
-													"value": "{{conjurHostID}}",
+													"value": "{{conjurAccount}}:host:{{conjurHostID}}",
 													"description": "The resource to remove as a member of the group."
 												}
 											]
