@@ -562,7 +562,7 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "POST",
+										"method": "DELETE",
 										"header": [
 											{
 												"key": "Authorization",
@@ -591,14 +591,12 @@
 												{
 													"key": "members",
 													"value": "%5B%5D",
-													"description": "Do not edit.  Required.",
-													"type": "text"
+													"description": "Do not edit.  Required."
 												},
 												{
 													"key": "member",
 													"value": "{{conjurHostID}}",
-													"description": "The resource to add as a member of the group.",
-													"type": "text"
+													"description": "The resource to remove as a member of the group."
 												}
 											]
 										}
