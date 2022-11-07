@@ -1171,12 +1171,12 @@
       }
     },
     "/api/roles/{conjurAccount}/group/{conjurGroupID}": {
-      "post": {
-        "summary": "Add Group Member",
+      "get": {
+        "summary": "Get Group Members",
         "tags": [
           "Group Members"
         ],
-        "operationId": "AddGroupMember",
+        "operationId": "GetGroupMembers",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -1185,23 +1185,6 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "members",
-            "in": "query",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Do not edit.  Required."
-          },
-          {
-            "name": "member",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "description": "The resource to add as a member of the group."
-          },
           {
             "name": "Authorization",
             "in": "header",
@@ -1242,12 +1225,12 @@
         },
         "security": []
       },
-      "get": {
-        "summary": "Get Group Members",
+      "post": {
+        "summary": "Add Group Member",
         "tags": [
           "Group Members"
         ],
-        "operationId": "GetGroupMembers",
+        "operationId": "AddGroupMember",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -1256,6 +1239,23 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "members",
+            "in": "query",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Do not edit.  Required."
+          },
+          {
+            "name": "member",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "The resource to add as a member of the group."
+          },
           {
             "name": "Authorization",
             "in": "header",
@@ -53815,7 +53815,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1667848704"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1667849361"
       },
       "type": "object",
       "properties": {
@@ -53830,7 +53830,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1667848704"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1667849361"
       },
       "type": "object",
       "properties": {
