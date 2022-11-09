@@ -654,7 +654,7 @@
 											"mode": "raw",
 											"raw": "- !user george"
 										},
-										"url": "{{conjurHostname}}/policies/{{conjurAccount}}/policy/{{conjurPolicyID}}",
+										"url": "{{conjurHostname}}/api/policies/{{conjurAccount}}/policy/{{conjurPolicyID}}",
 										"description": "Adds data to the existing Conjur policy. Deletions are not allowed. Any policy objects that exist on the server but are omitted from the policy file will not be deleted and any explicit deletions in the policy file will result in an error."
 									},
 									"response": []
