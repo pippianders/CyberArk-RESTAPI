@@ -1337,7 +1337,7 @@ paths:
           description: ''
           headers: {}
       security: []
-  /secrets/{conjurAccount}/variable/{conjurSecretID}:
+  /api/secrets/{conjurAccount}/variable/{conjurSecretID}:
     get:
       description: >-
         Fetches the value of a secret from the specified Variable. The latest version will be retrieved unless the version parameter is specified. The twenty most recent secret versions are retained.
@@ -1416,7 +1416,7 @@ paths:
           description: ''
           headers: {}
       security: []
-  /secrets/{conjurAccount}/variable/{conjurSecretK8sCaCert}:
+  /api/secrets/{conjurAccount}/variable/{conjurSecretK8sCaCert}:
     post:
       summary: Add Kubernetes CA Certificate
       tags:
@@ -1486,7 +1486,7 @@ paths:
           description: ''
           headers: {}
       security: []
-  /secrets/{conjurAccount}/variable/{conjurSecretK8sServiceAccountToken}:
+  /api/secrets/{conjurAccount}/variable/{conjurSecretK8sServiceAccountToken}:
     post:
       summary: Add Kubernetes Service Account Token
       tags:
@@ -40720,7 +40720,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011244
+      Reason: Automatically accepted via CyberArk Web Services on 1668011247
     type: object
     properties:
       Reason:
@@ -40730,7 +40730,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011244
+      Reason: Rejected automatically by CyberArk Web Services on 1668011247
     type: object
     properties:
       Reason:
