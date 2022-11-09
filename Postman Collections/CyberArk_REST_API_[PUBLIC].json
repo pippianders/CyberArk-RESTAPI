@@ -811,7 +811,7 @@
 											"mode": "raw",
 											"raw": "- !policy\n  id: seed-generation\n  body:\n  - !webservice\n  - !layer consumers\n  - !permit\n    role: !layer consumers\n    privilege: [ \"execute\" ]\n    resource: !webservice\n\n- !grant\n  role: !layer seed-generation/consumers\n  member: !host /conjur/authn-k8s/k8s-follower/apps/dap/service_account/conjur-cluster\n\n- !grant\n  role: !layer seed-generation/consumers\n  member: !host /conjur/authn-k8s/okd-follower/apps/dap/service_account/conjur-cluster"
 										},
-										"url": "{{conjurHostname}}/policies/{{conjurAccount}}/policy/root"
+										"url": "{{conjurHostname}}/api/policies/{{conjurAccount}}/policy/root"
 									},
 									"response": []
 								},
