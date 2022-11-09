@@ -880,11 +880,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{conjurHostname}}/secrets?variable_ids=cyberarkdemo:variable:ec2_deploy%2Faccess_key_id,cyberarkdemo:variable:ec2_deploy%2Faccess_key_secret",
+											"raw": "{{conjurHostname}}/api/secrets?variable_ids=cyberarkdemo:variable:ec2_deploy%2Faccess_key_id,cyberarkdemo:variable:ec2_deploy%2Faccess_key_secret",
 											"host": [
 												"{{conjurHostname}}"
 											],
 											"path": [
+												"api",
 												"secrets"
 											],
 											"query": [
