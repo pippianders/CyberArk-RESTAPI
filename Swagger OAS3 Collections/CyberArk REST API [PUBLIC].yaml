@@ -1157,10 +1157,10 @@ paths:
       security: []
   /policies/{conjurAccount}/policy/root:
     post:
-      summary: OpenShift authn-k8s Policy Append to Root Policy
+      summary: Seed Follower Service Policy Append to Root Policy
       tags:
       - Policy
-      operationId: OpenShiftauthn-k8sPolicyAppendtoRootPolicy
+      operationId: SeedFollowerServicePolicyAppendtoRootPolicy
       deprecated: false
       produces:
       - application/json
@@ -1175,7 +1175,24 @@ paths:
         required: true
         description: ''
         schema:
-          example: "- !policy\n  id: authn-k8s/okd-follower\n  body:\n  - !webservice\n  \n  - !variable ca/key\n  \n  - !variable ca/cert\n\n  - !policy\n    id: apps\n    body:\n    - !layer\n\n    - &authenticated-resources-okd\n      - !host\n        id: dap/service_account/conjur-cluster\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n          \n      - !host\n        id: demoapps/deployment/jenkins\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/secretless\n        annotations:\n          kubernetes/authentication-container-name: secretless-broker\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/summon\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/pyton\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/curl\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n          \n      - !host\n        id: demoapps/deployment/k8s_secret\n        annotations:\n          kubernetes/authentication-container-name: cyberark-secrets-provider\n          openshift: \"true\"\n\n    - !grant\n      role: !layer\n      members: *authenticated-resources-okd\n      \n  - !permit\n    resource: !webservice\n    privilege: [ read, authenticate ]\n    role: !layer apps\n\n- !policy\n  id: seed-generation\n  body:\n  - !webservice\n  - !layer consumers\n  - !permit\n    role: !layer consumers\n    privilege: [ \"execute\" ]\n    resource: !webservice\n\n- !grant\n  role: !layer seed-generation/consumers\n  member: !host /conjur/authn-k8s/k8s-follower/apps/dap/service_account/conjur-cluster"
+          example: >-
+            - !policy
+              id: seed-generation
+              body:
+              - !webservice
+              - !layer consumers
+              - !permit
+                role: !layer consumers
+                privilege: [ "execute" ]
+                resource: !webservice
+
+            - !grant
+              role: !layer seed-generation/consumers
+              member: !host /conjur/authn-k8s/k8s-follower/apps/dap/service_account/conjur-cluster
+
+            - !grant
+              role: !layer seed-generation/consumers
+              member: !host /conjur/authn-k8s/okd-follower/apps/dap/service_account/conjur-cluster
           type: string
       - name: conjurAccount
         in: path
@@ -40753,7 +40770,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011219
+      Reason: Automatically accepted via CyberArk Web Services on 1668011223
     type: object
     properties:
       Reason:
@@ -40763,7 +40780,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011219
+      Reason: Rejected automatically by CyberArk Web Services on 1668011223
     type: object
     properties:
       Reason:
