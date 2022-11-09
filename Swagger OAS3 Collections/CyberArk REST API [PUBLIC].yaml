@@ -1311,7 +1311,7 @@ paths:
           description: ''
           headers: {}
       security: []
-  /secrets:
+  /api/secrets:
     get:
       description: Fetches multiple secret values in one invocation. It’s faster to fetch secrets in batches than to fetch them one at a time.
       summary: Batch Retrieval
@@ -40720,7 +40720,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011229
+      Reason: Automatically accepted via CyberArk Web Services on 1668011244
     type: object
     properties:
       Reason:
@@ -40730,7 +40730,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011229
+      Reason: Rejected automatically by CyberArk Web Services on 1668011244
     type: object
     properties:
       Reason:
