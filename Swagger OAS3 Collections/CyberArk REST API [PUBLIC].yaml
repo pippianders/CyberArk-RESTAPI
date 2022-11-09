@@ -315,7 +315,7 @@ paths:
           description: ''
           headers: {}
       security: []
-  /authn/{conjurAccount}/{conjurUsername}/authenticate:
+  /api/authn/{conjurAccount}/{conjurUsername}/authenticate:
     post:
       description: >-
         Gets a short-lived access token, which can be used to authenticate requests to (most of) the rest of the Conjur API. A client can obtain an access token by presenting a valid login name and API key.
@@ -375,7 +375,7 @@ paths:
           description: ''
           headers: {}
       security: []
-  /authn/{conjurAccount}/password:
+  /api/authn/{conjurAccount}/password:
     put:
       description: >-
         Changes a user’s password. You must provide the login name and current password or API key of the user whose password is to be updated in an HTTP Basic Authentication header. Also replaces the user’s API key with a new securely generated random value. You can fetch the new API key by using Login.
@@ -40720,7 +40720,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011186
+      Reason: Automatically accepted via CyberArk Web Services on 1668011193
     type: object
     properties:
       Reason:
@@ -40730,7 +40730,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011186
+      Reason: Rejected automatically by CyberArk Web Services on 1668011193
     type: object
     properties:
       Reason:
