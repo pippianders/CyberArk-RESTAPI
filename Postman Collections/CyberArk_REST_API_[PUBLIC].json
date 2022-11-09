@@ -965,7 +965,7 @@
 											"mode": "raw",
 											"raw": "{{conjurSecretValue}}"
 										},
-										"url": "{{conjurHostname}}/secrets/{{conjurAccount}}/variable/{{conjurSecretID}}",
+										"url": "{{conjurHostname}}/api/secrets/{{conjurAccount}}/variable/{{conjurSecretID}}",
 										"description": "Creates a secret value within the specified Variable.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources."
 									},
 									"response": []
@@ -992,7 +992,7 @@
 											"mode": "raw",
 											"raw": "-----BEGIN CERTIFICATE-----\nMIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl\ncm5ldGVzMB4XDTE5MDMxODE5NTE0NloXDTI5MDMxNTE5NTE0NlowFTETMBEGA1UE\nAxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPSr\ni+aUjWdfe7I+snYG2CXEgvP8DVVbLtJn/MzWiIiuqqT14ozkrL7u+a/jLw0GLv4e\nbPXUdVy6Ob80DEuTJZ9Jb+MOPSP7Xsce9nPMwUPN17ucH+m4BLYC/60PuZkrQF95\neLQ38qoQIgnViYYnpyNLI5lY23aNLsqHK6Hk/DgzrfQTaBeIqpsvu0/QKew2Tjq2\n7gRhd8ZRRmwquO/MNyOBxkQ/B0iBq20ZwOoG/3UMw3gynJEcMwGlFcmXETxxxtnj\nlJIGNg3c0L1Lk4CRCRDoi00zE27heHdNXS0nhXSvOnNSM3Pjcr92kLg7NArBv1Oo\ncLDoAeFvt9Hmoc0nwEUCAwEAAaMjMCEwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB\n/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAMEsF+w2wmLGl9EQ0ohtVBMQivmo\nHWsmchSRGoIo9U3Ns+z40Lm7u0qD9mKi3hFS7s73NioRF3XWKZZ2g0BxhUfiX7oe\nKlEN+p8WL2ld4ELHzI+xd5TfYJadn4QYrY0joE65X74TCuCe9quoFtDK7sENn6+R\njkh821YJJH3qy56rwmxmXcmwdtStFoFiF93RLLpBTfKvLiTnIF3Yj5Kf9qcRBd9Z\nKMWaLCavB2OWoE31SfGGetgi5grJxoUcRxVGZX4F/nyIjNEvly/nfg1X0igfn0fz\nB8U+sRYaJN6sD/lFV68qgbXH+BaV/Y+hyrTLLtoPoCXzO16vavVsJSHhvVk=\n-----END CERTIFICATE-----"
 										},
-										"url": "{{conjurHostname}}/secrets/{{conjurAccount}}/variable/{{conjurSecretK8sCaCert}}"
+										"url": "{{conjurHostname}}/api/secrets/{{conjurAccount}}/variable/{{conjurSecretK8sCaCert}}"
 									},
 									"response": []
 								},
@@ -1018,7 +1018,7 @@
 											"mode": "raw",
 											"raw": "eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkYXAiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlY3JldC5uYW1lIjoiY29uanVyLWNsdXN0ZXItdG9rZW4tYm1ubTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiY29uanVyLWNsdXN0ZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI5MDhkN2ExNy1hMjdkLTExZTktYmNkYy0wMjUwMDAwMDAwMDEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6ZGFwOmNvbmp1ci1jbHVzdGVyIn0.VRCYTFoweZb2epcMvOSeTmdyEYzWF595YFAN4aWVBXP5YD__pJ1mRhRieL5H-k0fXgBKznTHXBg8qZVU5Cf1ha9nzyefnnorQQ6DDMGrw_3gZ6zoiIVKr94K9il_wZ7fjYkOgdJCnCmIk_Mnla-4THkQmIhRRIusqtXlfwk9GryHavr4ZqYREJkF8vQ3C6I8mRPSxkSyhJGGDDKEqoW7tM6Dy2D50lP6olUWgHP9o8M2niPv-1FIdn96Ulvwhdx6a87VOqfPIaQKgwDMIa3DkAl-BX2rL5NhdsctmlGR_4Ygz0rSOfwK0_Whfc3vp9ox5tUA5aPcUh465be4u1kawg"
 										},
-										"url": "{{conjurHostname}}/secrets/{{conjurAccount}}/variable/{{conjurSecretK8sServiceAccountToken}}"
+										"url": "{{conjurHostname}}/api/secrets/{{conjurAccount}}/variable/{{conjurSecretK8sServiceAccountToken}}"
 									},
 									"response": []
 								}
