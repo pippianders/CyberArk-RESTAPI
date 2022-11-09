@@ -1085,7 +1085,7 @@ paths:
           description: ''
           headers: {}
       security: []
-  /policies/{conjurAccount}/policy/{conjurPolicyID}:
+  /api/policies/{conjurAccount}/policy/{conjurPolicyID}:
     post:
       description: Adds data to the existing Conjur policy. Deletions are not allowed. Any policy objects that exist on the server but are omitted from the policy file will not be deleted and any explicit deletions in the policy file will result in an error.
       summary: Append to a Policy
@@ -1107,47 +1107,6 @@ paths:
         description: ''
         schema:
           example: '- !user george'
-          type: string
-      - name: conjurAccount
-        in: path
-        required: true
-        type: string
-        description: ''
-      - name: conjurPolicyID
-        in: path
-        required: true
-        type: string
-        description: ''
-      responses:
-        '200':
-          description: ''
-          headers: {}
-      security: []
-    put:
-      description: >-
-        Loads or replaces a Conjur policy document.
-
-
-        Any policy data which already exists on the server but is **not** explicitly specified in the new policy file **will be deleted**.
-      summary: Replace Policy
-      tags:
-      - Policy
-      operationId: ReplacePolicy
-      deprecated: false
-      produces:
-      - application/json
-      parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          example: "---\n- !user mike\n\n- !user john\n\n- !user paul\n\n- !user eva\n\n- !group admins\n\n- !group devops\n\n- !grant\n  role: !group admins\n  members:\n   - !user mike\n   - !user eva\n\n- !grant\n  role: !group devops\n  members:\n   - !user john\n   - !user paul\n   - !group admins\n   - !user admin\n\n- !permit\n  role: !group admins\n  privileges:\n   - read\n   - update\n   - create\n  resources:\n   - !policy root\n\n- !policy\n  id: conjur\n  owner: !group /devops\n\n- !policy\n  id: secrets\n  owner: !group /devops\n  \n- !policy\n  id: ansible\n  owner: !group /devops"
           type: string
       - name: conjurAccount
         in: path
@@ -1187,6 +1146,48 @@ paths:
           example: "- !policy\n  id: authn-iam/prod\n  owner: !group /admins\n  body:\n    - !webservice\n\n    - !group clients\n\n    - !permit\n      role: !group clients\n      privileges: [ read, authenticate ]\n      resource: !webservice\n\n- !policy \n  id: myapp\n  owner: !group /admins\n  body:\n  - &variables\n    - !variable database/username\n    - !variable database/password\n\n  # Create a group that will have permission to retrieve variables\n  - !group secrets-users\n\n  # Give the `secrets-users` group permission to retrieve variables\n  - !permit\n    role: !group secrets-users\n    privilege: [ read, execute ]\n    resource: *variables\n  \n  # Create a layer to hold this application's hosts\n  - !layer\n\n  # The host ID needs to match the AWS ARN of the role we wish to authenticate.\n  - !host 978458609324/MyApp\n\n  # Add our host into our layer\n  - !grant\n    role: !layer\n    member: !host 978458609324/MyApp\n\n  # Give the host in our layer permission to retrieve variables\n  - !grant\n    member: !layer\n    role: !group secrets-users\n  \n- !grant\n  role: !group authn-iam/prod/clients\n  member: !host myapp/978458609324/MyApp"
           type: string
       - name: conjurAccount
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
+  /policies/{conjurAccount}/policy/{conjurPolicyID}:
+    put:
+      description: >-
+        Loads or replaces a Conjur policy document.
+
+
+        Any policy data which already exists on the server but is **not** explicitly specified in the new policy file **will be deleted**.
+      summary: Replace Policy
+      tags:
+      - Policy
+      operationId: ReplacePolicy
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          example: "---\n- !user mike\n\n- !user john\n\n- !user paul\n\n- !user eva\n\n- !group admins\n\n- !group devops\n\n- !grant\n  role: !group admins\n  members:\n   - !user mike\n   - !user eva\n\n- !grant\n  role: !group devops\n  members:\n   - !user john\n   - !user paul\n   - !group admins\n   - !user admin\n\n- !permit\n  role: !group admins\n  privileges:\n   - read\n   - update\n   - create\n  resources:\n   - !policy root\n\n- !policy\n  id: conjur\n  owner: !group /devops\n\n- !policy\n  id: secrets\n  owner: !group /devops\n  \n- !policy\n  id: ansible\n  owner: !group /devops"
+          type: string
+      - name: conjurAccount
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: conjurPolicyID
         in: path
         required: true
         type: string
@@ -40720,7 +40721,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011203
+      Reason: Automatically accepted via CyberArk Web Services on 1668011212
     type: object
     properties:
       Reason:
@@ -40730,7 +40731,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011203
+      Reason: Rejected automatically by CyberArk Web Services on 1668011212
     type: object
     properties:
       Reason:
