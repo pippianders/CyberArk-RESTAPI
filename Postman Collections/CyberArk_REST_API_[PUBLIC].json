@@ -102,7 +102,7 @@
 												},
 												"method": "PUT",
 												"header": [],
-												"url": "{{conjurHostname}}/authn/{{conjurAccount}}/api_key",
+												"url": "{{conjurHostname}}/api/authn/{{conjurAccount}}/api_key",
 												"description": "Any role can rotate its own API key. The name and password or current API key of the role must be provided via HTTP Basic Authorization.\n\nNote that the body of the request must be the empty string."
 											},
 											"response": []
