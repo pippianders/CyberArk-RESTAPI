@@ -1869,7 +1869,7 @@
         "security": []
       }
     },
-    "/api/secrets/{conjurAccount}/variable/{conjurSecretK8sServiceAccountToken}": {
+    "/secrets/{conjurAccount}/variable/{conjurSecretK8sServiceAccountToken}": {
       "post": {
         "summary": "Add Kubernetes Service Account Token",
         "tags": [
@@ -53815,7 +53815,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1668011249"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1668011250"
       },
       "type": "object",
       "properties": {
@@ -53830,7 +53830,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1668011249"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1668011250"
       },
       "type": "object",
       "properties": {
