@@ -1123,88 +1123,6 @@ paths:
           description: ''
           headers: {}
       security: []
-  /api/policies/{conjurAccount}/policy/root:
-    post:
-      summary: AWS authn-iam Policy Append to Root Policy
-      tags:
-      - Policy
-      operationId: AWSauthn-iamPolicyAppendtoRootPolicy
-      deprecated: false
-      produces:
-      - application/json
-      parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          example: "- !policy\n  id: authn-iam/prod\n  owner: !group /admins\n  body:\n    - !webservice\n\n    - !group clients\n\n    - !permit\n      role: !group clients\n      privileges: [ read, authenticate ]\n      resource: !webservice\n\n- !policy \n  id: myapp\n  owner: !group /admins\n  body:\n  - &variables\n    - !variable database/username\n    - !variable database/password\n\n  # Create a group that will have permission to retrieve variables\n  - !group secrets-users\n\n  # Give the `secrets-users` group permission to retrieve variables\n  - !permit\n    role: !group secrets-users\n    privilege: [ read, execute ]\n    resource: *variables\n  \n  # Create a layer to hold this application's hosts\n  - !layer\n\n  # The host ID needs to match the AWS ARN of the role we wish to authenticate.\n  - !host 978458609324/MyApp\n\n  # Add our host into our layer\n  - !grant\n    role: !layer\n    member: !host 978458609324/MyApp\n\n  # Give the host in our layer permission to retrieve variables\n  - !grant\n    member: !layer\n    role: !group secrets-users\n  \n- !grant\n  role: !group authn-iam/prod/clients\n  member: !host myapp/978458609324/MyApp"
-          type: string
-      - name: conjurAccount
-        in: path
-        required: true
-        type: string
-        description: ''
-      responses:
-        '200':
-          description: ''
-          headers: {}
-      security: []
-  /policies/{conjurAccount}/policy/root:
-    post:
-      summary: Seed Follower Service Policy Append to Root Policy
-      tags:
-      - Policy
-      operationId: SeedFollowerServicePolicyAppendtoRootPolicy
-      deprecated: false
-      produces:
-      - application/json
-      parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          example: >-
-            - !policy
-              id: seed-generation
-              body:
-              - !webservice
-              - !layer consumers
-              - !permit
-                role: !layer consumers
-                privilege: [ "execute" ]
-                resource: !webservice
-
-            - !grant
-              role: !layer seed-generation/consumers
-              member: !host /conjur/authn-k8s/k8s-follower/apps/dap/service_account/conjur-cluster
-
-            - !grant
-              role: !layer seed-generation/consumers
-              member: !host /conjur/authn-k8s/okd-follower/apps/dap/service_account/conjur-cluster
-          type: string
-      - name: conjurAccount
-        in: path
-        required: true
-        type: string
-        description: ''
-      responses:
-        '200':
-          description: ''
-          headers: {}
-      security: []
-  /policies/{conjurAccount}/policy/{conjurPolicyID}:
     put:
       description: >-
         Loads or replaces a Conjur policy document.
@@ -1237,6 +1155,38 @@ paths:
         type: string
         description: ''
       - name: conjurPolicyID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
+  /api/policies/{conjurAccount}/policy/root:
+    post:
+      summary: AWS authn-iam Policy Append to Root Policy
+      tags:
+      - Policy
+      operationId: AWSauthn-iamPolicyAppendtoRootPolicy
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          example: "- !policy\n  id: authn-iam/prod\n  owner: !group /admins\n  body:\n    - !webservice\n\n    - !group clients\n\n    - !permit\n      role: !group clients\n      privileges: [ read, authenticate ]\n      resource: !webservice\n\n- !policy \n  id: myapp\n  owner: !group /admins\n  body:\n  - &variables\n    - !variable database/username\n    - !variable database/password\n\n  # Create a group that will have permission to retrieve variables\n  - !group secrets-users\n\n  # Give the `secrets-users` group permission to retrieve variables\n  - !permit\n    role: !group secrets-users\n    privilege: [ read, execute ]\n    resource: *variables\n  \n  # Create a layer to hold this application's hosts\n  - !layer\n\n  # The host ID needs to match the AWS ARN of the role we wish to authenticate.\n  - !host 978458609324/MyApp\n\n  # Add our host into our layer\n  - !grant\n    role: !layer\n    member: !host 978458609324/MyApp\n\n  # Give the host in our layer permission to retrieve variables\n  - !grant\n    member: !layer\n    role: !group secrets-users\n  \n- !grant\n  role: !group authn-iam/prod/clients\n  member: !host myapp/978458609324/MyApp"
+          type: string
+      - name: conjurAccount
         in: path
         required: true
         type: string
@@ -40770,7 +40720,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011223
+      Reason: Automatically accepted via CyberArk Web Services on 1668011229
     type: object
     properties:
       Reason:
@@ -40780,7 +40730,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011223
+      Reason: Rejected automatically by CyberArk Web Services on 1668011229
     type: object
     properties:
       Reason:
