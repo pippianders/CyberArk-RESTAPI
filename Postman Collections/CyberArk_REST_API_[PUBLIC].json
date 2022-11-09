@@ -1037,7 +1037,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{conjurHostname}}/health"
+								"url": "{{conjurHostname}}/api/health"
 							},
 							"response": []
 						},
@@ -1053,7 +1053,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{conjurHostname}}/info"
+								"url": "{{conjurHostname}}/api/info"
 							},
 							"response": [
 								{
