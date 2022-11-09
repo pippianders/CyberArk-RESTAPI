@@ -850,7 +850,7 @@
 											"mode": "raw",
 											"raw": "---\n- !user mike\n\n- !user john\n\n- !user paul\n\n- !user eva\n\n- !group admins\n\n- !group devops\n\n- !grant\n  role: !group admins\n  members:\n   - !user mike\n   - !user eva\n\n- !grant\n  role: !group devops\n  members:\n   - !user john\n   - !user paul\n   - !group admins\n   - !user admin\n\n- !permit\n  role: !group admins\n  privileges:\n   - read\n   - update\n   - create\n  resources:\n   - !policy root\n\n- !policy\n  id: conjur\n  owner: !group /devops\n\n- !policy\n  id: secrets\n  owner: !group /devops\n  \n- !policy\n  id: ansible\n  owner: !group /devops"
 										},
-										"url": "{{conjurHostname}}/policies/{{conjurAccount}}/policy/{{conjurPolicyID}}",
+										"url": "{{conjurHostname}}/api/policies/{{conjurAccount}}/policy/{{conjurPolicyID}}",
 										"description": "Loads or replaces a Conjur policy document.\n\nAny policy data which already exists on the server but is **not** explicitly specified in the new policy file **will be deleted**."
 									},
 									"response": []
