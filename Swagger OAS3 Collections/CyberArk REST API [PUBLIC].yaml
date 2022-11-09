@@ -1523,7 +1523,7 @@ paths:
           description: ''
           headers: {}
       security: []
-  /health:
+  /api/health:
     get:
       summary: Health
       tags:
@@ -1538,7 +1538,7 @@ paths:
           description: ''
           headers: {}
       security: []
-  /info:
+  /api/info:
     get:
       summary: Information
       tags:
@@ -40720,7 +40720,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011247
+      Reason: Automatically accepted via CyberArk Web Services on 1668011257
     type: object
     properties:
       Reason:
@@ -40730,7 +40730,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011247
+      Reason: Rejected automatically by CyberArk Web Services on 1668011257
     type: object
     properties:
       Reason:
