@@ -1053,7 +1053,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{conjurHostname}}/api/info"
+								"url": "{{conjurHostname}}/info"
 							},
 							"response": [
 								{
