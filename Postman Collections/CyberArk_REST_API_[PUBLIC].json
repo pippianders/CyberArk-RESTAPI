@@ -125,11 +125,12 @@
 												"method": "PUT",
 												"header": [],
 												"url": {
-													"raw": "{{conjurHostname}}/authn/{{conjurAccount}}/api_key?role=host:hostID",
+													"raw": "{{conjurHostname}}/api/authn/{{conjurAccount}}/api_key?role=host:hostID",
 													"host": [
 														"{{conjurHostname}}"
 													],
 													"path": [
+														"api",
 														"authn",
 														"{{conjurAccount}}",
 														"api_key"
