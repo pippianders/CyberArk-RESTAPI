@@ -1468,52 +1468,6 @@
         "security": []
       }
     },
-    "/policies/{conjurAccount}/policy/root": {
-      "post": {
-        "summary": "Seed Follower Service Policy Append to Root Policy",
-        "tags": [
-          "Policy"
-        ],
-        "operationId": "SeedFollowerServicePolicyAppendtoRootPolicy",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "example": "- !policy\n  id: seed-generation\n  body:\n  - !webservice\n  - !layer consumers\n  - !permit\n    role: !layer consumers\n    privilege: [ \"execute\" ]\n    resource: !webservice\n\n- !grant\n  role: !layer seed-generation/consumers\n  member: !host /conjur/authn-k8s/k8s-follower/apps/dap/service_account/conjur-cluster\n\n- !grant\n  role: !layer seed-generation/consumers\n  member: !host /conjur/authn-k8s/okd-follower/apps/dap/service_account/conjur-cluster",
-              "type": "string"
-            }
-          },
-          {
-            "name": "conjurAccount",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
     "/policies/{conjurAccount}/policy/{conjurPolicyID}": {
       "put": {
         "description": "Loads or replaces a Conjur policy document.\n\nAny policy data which already exists on the server but is **not** explicitly specified in the new policy file **will be deleted**.",
@@ -53863,7 +53817,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1668011224"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1668011227"
       },
       "type": "object",
       "properties": {
@@ -53878,7 +53832,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1668011224"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1668011227"
       },
       "type": "object",
       "properties": {
