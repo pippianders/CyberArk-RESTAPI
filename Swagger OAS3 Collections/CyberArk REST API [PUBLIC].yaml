@@ -290,7 +290,7 @@ paths:
               default: '0.550903'
       security:
       - basic: []
-  /whoami:
+  /api/whoami:
     get:
       description: >-
         WhoAmI provides information about the client making an API request.
@@ -40720,7 +40720,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011183
+      Reason: Automatically accepted via CyberArk Web Services on 1668011186
     type: object
     properties:
       Reason:
@@ -40730,7 +40730,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011183
+      Reason: Rejected automatically by CyberArk Web Services on 1668011186
     type: object
     properties:
       Reason:
