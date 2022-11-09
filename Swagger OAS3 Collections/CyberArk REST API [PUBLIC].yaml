@@ -1123,7 +1123,7 @@ paths:
           description: ''
           headers: {}
       security: []
-  /policies/{conjurAccount}/policy/root:
+  /api/policies/{conjurAccount}/policy/root:
     post:
       summary: AWS authn-iam Policy Append to Root Policy
       tags:
@@ -1144,6 +1144,38 @@ paths:
         description: ''
         schema:
           example: "- !policy\n  id: authn-iam/prod\n  owner: !group /admins\n  body:\n    - !webservice\n\n    - !group clients\n\n    - !permit\n      role: !group clients\n      privileges: [ read, authenticate ]\n      resource: !webservice\n\n- !policy \n  id: myapp\n  owner: !group /admins\n  body:\n  - &variables\n    - !variable database/username\n    - !variable database/password\n\n  # Create a group that will have permission to retrieve variables\n  - !group secrets-users\n\n  # Give the `secrets-users` group permission to retrieve variables\n  - !permit\n    role: !group secrets-users\n    privilege: [ read, execute ]\n    resource: *variables\n  \n  # Create a layer to hold this application's hosts\n  - !layer\n\n  # The host ID needs to match the AWS ARN of the role we wish to authenticate.\n  - !host 978458609324/MyApp\n\n  # Add our host into our layer\n  - !grant\n    role: !layer\n    member: !host 978458609324/MyApp\n\n  # Give the host in our layer permission to retrieve variables\n  - !grant\n    member: !layer\n    role: !group secrets-users\n  \n- !grant\n  role: !group authn-iam/prod/clients\n  member: !host myapp/978458609324/MyApp"
+          type: string
+      - name: conjurAccount
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
+  /policies/{conjurAccount}/policy/root:
+    post:
+      summary: OpenShift authn-k8s Policy Append to Root Policy
+      tags:
+      - Policy
+      operationId: OpenShiftauthn-k8sPolicyAppendtoRootPolicy
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          example: "- !policy\n  id: authn-k8s/okd-follower\n  body:\n  - !webservice\n  \n  - !variable ca/key\n  \n  - !variable ca/cert\n\n  - !policy\n    id: apps\n    body:\n    - !layer\n\n    - &authenticated-resources-okd\n      - !host\n        id: dap/service_account/conjur-cluster\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n          \n      - !host\n        id: demoapps/deployment/jenkins\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/secretless\n        annotations:\n          kubernetes/authentication-container-name: secretless-broker\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/summon\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/pyton\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n\n      - !host\n        id: demoapps/deployment/curl\n        annotations:\n          kubernetes/authentication-container-name: authenticator\n          openshift: \"true\"\n          \n      - !host\n        id: demoapps/deployment/k8s_secret\n        annotations:\n          kubernetes/authentication-container-name: cyberark-secrets-provider\n          openshift: \"true\"\n\n    - !grant\n      role: !layer\n      members: *authenticated-resources-okd\n      \n  - !permit\n    resource: !webservice\n    privilege: [ read, authenticate ]\n    role: !layer apps\n\n- !policy\n  id: seed-generation\n  body:\n  - !webservice\n  - !layer consumers\n  - !permit\n    role: !layer consumers\n    privilege: [ \"execute\" ]\n    resource: !webservice\n\n- !grant\n  role: !layer seed-generation/consumers\n  member: !host /conjur/authn-k8s/k8s-follower/apps/dap/service_account/conjur-cluster"
           type: string
       - name: conjurAccount
         in: path
@@ -40721,7 +40753,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011212
+      Reason: Automatically accepted via CyberArk Web Services on 1668011219
     type: object
     properties:
       Reason:
@@ -40731,7 +40763,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011212
+      Reason: Rejected automatically by CyberArk Web Services on 1668011219
     type: object
     properties:
       Reason:
