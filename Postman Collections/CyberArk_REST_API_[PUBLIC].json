@@ -1608,11 +1608,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{conjurHostname}}/resources/{{conjurAccount}}?kind=policy",
+									"raw": "{{conjurHostname}}/api/resources/{{conjurAccount}}?kind=policy",
 									"host": [
 										"{{conjurHostname}}"
 									],
 									"path": [
+										"api",
 										"resources",
 										"{{conjurAccount}}"
 									],
@@ -1730,11 +1731,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{conjurHostname}}/resources/{{conjurAccount}}?kind=variable",
+									"raw": "{{conjurHostname}}/api/resources/{{conjurAccount}}?kind=variable",
 									"host": [
 										"{{conjurHostname}}"
 									],
 									"path": [
+										"api",
 										"resources",
 										"{{conjurAccount}}"
 									],
