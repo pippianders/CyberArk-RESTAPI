@@ -285,7 +285,7 @@
         ]
       }
     },
-    "/whoami": {
+    "/api/whoami": {
       "get": {
         "description": "WhoAmI provides information about the client making an API request.\n\nIt can be used to help troubleshoot configuration by verifying authentication and the client IP address for audit and network access restrictions. For more information, see [Host Attributes](https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-DAP/Latest/en/Content/Operations/Policy/statement-ref-host.htm#Attribut).",
         "summary": "Whoami",
@@ -53815,7 +53815,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1668011182"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1668011186"
       },
       "type": "object",
       "properties": {
@@ -53830,7 +53830,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1668011182"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1668011186"
       },
       "type": "object",
       "properties": {
