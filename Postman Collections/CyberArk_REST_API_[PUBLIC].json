@@ -918,11 +918,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{conjurHostname}}/secrets/{{conjurAccount}}/variable/{{conjurSecretID}}",
+											"raw": "{{conjurHostname}}/api/secrets/{{conjurAccount}}/variable/{{conjurSecretID}}",
 											"host": [
 												"{{conjurHostname}}"
 											],
 											"path": [
+												"api",
 												"secrets",
 												"{{conjurAccount}}",
 												"variable",
@@ -964,7 +965,7 @@
 											"mode": "raw",
 											"raw": "{{conjurSecretValue}}"
 										},
-										"url": "{{conjurHostname}}/secrets/{{conjurAccount}}/variable/{{conjurSecretID}}",
+										"url": "{{conjurHostname}}/api/secrets/{{conjurAccount}}/variable/{{conjurSecretID}}",
 										"description": "Creates a secret value within the specified Variable.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources."
 									},
 									"response": []
