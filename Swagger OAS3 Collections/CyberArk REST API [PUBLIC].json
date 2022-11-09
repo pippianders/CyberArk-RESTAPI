@@ -1762,9 +1762,7 @@
           }
         },
         "security": []
-      }
-    },
-    "/secrets/{conjurAccount}/variable/{conjurSecretID}": {
+      },
       "post": {
         "description": "Creates a secret value within the specified Variable.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources.",
         "summary": "Add A Secret",
@@ -1818,7 +1816,7 @@
         "security": []
       }
     },
-    "/secrets/{conjurAccount}/variable/{conjurSecretK8sCaCert}": {
+    "/api/secrets/{conjurAccount}/variable/{conjurSecretK8sCaCert}": {
       "post": {
         "summary": "Add Kubernetes CA Certificate",
         "tags": [
@@ -1871,7 +1869,7 @@
         "security": []
       }
     },
-    "/secrets/{conjurAccount}/variable/{conjurSecretK8sServiceAccountToken}": {
+    "/api/secrets/{conjurAccount}/variable/{conjurSecretK8sServiceAccountToken}": {
       "post": {
         "summary": "Add Kubernetes Service Account Token",
         "tags": [
@@ -53817,7 +53815,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1668011243"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1668011249"
       },
       "type": "object",
       "properties": {
@@ -53832,7 +53830,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1668011243"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1668011249"
       },
       "type": "object",
       "properties": {
