@@ -40720,7 +40720,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011272
+      Reason: Automatically accepted via CyberArk Web Services on 1668011276
     type: object
     properties:
       Reason:
@@ -40730,7 +40730,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011272
+      Reason: Rejected automatically by CyberArk Web Services on 1668011276
     type: object
     properties:
       Reason:
