@@ -1762,7 +1762,9 @@
           }
         },
         "security": []
-      },
+      }
+    },
+    "/secrets/{conjurAccount}/variable/{conjurSecretID}": {
       "post": {
         "description": "Creates a secret value within the specified Variable.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources.",
         "summary": "Add A Secret",
@@ -53815,7 +53817,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1668011242"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1668011243"
       },
       "type": "object",
       "properties": {
@@ -53830,7 +53832,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1668011242"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1668011243"
       },
       "type": "object",
       "properties": {
