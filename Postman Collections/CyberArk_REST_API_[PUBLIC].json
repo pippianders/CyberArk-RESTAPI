@@ -992,7 +992,7 @@
 											"mode": "raw",
 											"raw": "-----BEGIN CERTIFICATE-----\nMIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl\ncm5ldGVzMB4XDTE5MDMxODE5NTE0NloXDTI5MDMxNTE5NTE0NlowFTETMBEGA1UE\nAxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPSr\ni+aUjWdfe7I+snYG2CXEgvP8DVVbLtJn/MzWiIiuqqT14ozkrL7u+a/jLw0GLv4e\nbPXUdVy6Ob80DEuTJZ9Jb+MOPSP7Xsce9nPMwUPN17ucH+m4BLYC/60PuZkrQF95\neLQ38qoQIgnViYYnpyNLI5lY23aNLsqHK6Hk/DgzrfQTaBeIqpsvu0/QKew2Tjq2\n7gRhd8ZRRmwquO/MNyOBxkQ/B0iBq20ZwOoG/3UMw3gynJEcMwGlFcmXETxxxtnj\nlJIGNg3c0L1Lk4CRCRDoi00zE27heHdNXS0nhXSvOnNSM3Pjcr92kLg7NArBv1Oo\ncLDoAeFvt9Hmoc0nwEUCAwEAAaMjMCEwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB\n/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAMEsF+w2wmLGl9EQ0ohtVBMQivmo\nHWsmchSRGoIo9U3Ns+z40Lm7u0qD9mKi3hFS7s73NioRF3XWKZZ2g0BxhUfiX7oe\nKlEN+p8WL2ld4ELHzI+xd5TfYJadn4QYrY0joE65X74TCuCe9quoFtDK7sENn6+R\njkh821YJJH3qy56rwmxmXcmwdtStFoFiF93RLLpBTfKvLiTnIF3Yj5Kf9qcRBd9Z\nKMWaLCavB2OWoE31SfGGetgi5grJxoUcRxVGZX4F/nyIjNEvly/nfg1X0igfn0fz\nB8U+sRYaJN6sD/lFV68qgbXH+BaV/Y+hyrTLLtoPoCXzO16vavVsJSHhvVk=\n-----END CERTIFICATE-----"
 										},
-										"url": "{{conjurHostname}}/secrets/{{conjurAccount}}/variable/{{conjurSecretK8sCaCert}}"
+										"url": "{{conjurHostname}}/api/secrets/{{conjurAccount}}/variable/{{conjurSecretK8sCaCert}}"
 									},
 									"response": []
 								},
