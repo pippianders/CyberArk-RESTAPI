@@ -315,7 +315,7 @@
         "security": []
       }
     },
-    "/authn/{conjurAccount}/{conjurUsername}/authenticate": {
+    "/api/authn/{conjurAccount}/{conjurUsername}/authenticate": {
       "post": {
         "description": "Gets a short-lived access token, which can be used to authenticate requests to (most of) the rest of the Conjur API. A client can obtain an access token by presenting a valid login name and API key.\n\nThe login must be URL encoded. For example, `alice@devops` must be encoded as `alice%40devops`.\n\nFor host authentication, the login is the host ID with the prefix `host/`. For example, the host webserver would login as `host/webserver`, and would be encoded as `host%2Fwebserver`.\n\nFor API usage, the access token is ordinarily passed as an HTTP Authorization “Token” header.\n\n**Note: Base64-encode the JSON Web Token (JWT) returned in the response for use as the {{dapToken}}.**",
         "summary": "Authenticate",
@@ -53815,7 +53815,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1668011186"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1668011189"
       },
       "type": "object",
       "properties": {
@@ -53830,7 +53830,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1668011186"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1668011189"
       },
       "type": "object",
       "properties": {
