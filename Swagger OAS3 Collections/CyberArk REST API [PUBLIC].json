@@ -1869,7 +1869,7 @@
         "security": []
       }
     },
-    "/secrets/{conjurAccount}/variable/{conjurSecretK8sServiceAccountToken}": {
+    "/api/secrets/{conjurAccount}/variable/{conjurSecretK8sServiceAccountToken}": {
       "post": {
         "summary": "Add Kubernetes Service Account Token",
         "tags": [
@@ -1922,7 +1922,7 @@
         "security": []
       }
     },
-    "/health": {
+    "/api/health": {
       "get": {
         "summary": "Health",
         "tags": [
@@ -1943,7 +1943,7 @@
         "security": []
       }
     },
-    "/info": {
+    "/api/info": {
       "get": {
         "summary": "Information",
         "tags": [
@@ -2052,7 +2052,7 @@
         "security": []
       }
     },
-    "/resources/{conjurAccount}": {
+    "/api/resources/{conjurAccount}": {
       "get": {
         "summary": "List Everything",
         "tags": [
@@ -2133,6 +2133,142 @@
               "X-Runtime": {
                 "type": "string",
                 "default": "0.008289"
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/resources/{conjurAccount}": {
+      "get": {
+        "summary": "List Policies",
+        "tags": [
+          "Self-Hosted Enterprise"
+        ],
+        "operationId": "ListPolicies",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "name": "kind",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "conjurAccount",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/200OK3"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "created_at": "2019-09-25T16:38:16.426+00:00",
+                  "id": "cyberarkdemo:policy:root",
+                  "owner": "cyberarkdemo:user:admin",
+                  "permissions": [],
+                  "annotations": [],
+                  "policy_versions": [
+                    {
+                      "version": 1,
+                      "created_at": "2019-09-25T16:38:16.426+00:00",
+                      "policy_text": "- !policy\n  id: ec2_deploy\n",
+                      "policy_sha256": "074ae39f5be04db36ad2bb236c802963a4aa08d54501e941b99f8f2196bc2d62",
+                      "finished_at": "2019-09-25T16:38:16.559+00:00",
+                      "id": "cyberarkdemo:policy:root",
+                      "role": "cyberarkdemo:user:admin"
+                    }
+                  ]
+                },
+                {
+                  "created_at": "2019-09-25T16:38:16.426+00:00",
+                  "id": "cyberarkdemo:policy:ec2_deploy",
+                  "owner": "cyberarkdemo:user:admin",
+                  "policy": "cyberarkdemo:policy:root",
+                  "permissions": [],
+                  "annotations": [],
+                  "policy_versions": [
+                    {
+                      "version": 1,
+                      "created_at": "2019-09-25T16:40:42.340+00:00",
+                      "policy_text": "- !host\n  id: ansible-tower\n  annotations:\n    ansible: true\n\n- !variable access_key_id\n- !variable access_key_secret\n\n- !permit\n  role: !host ansible-tower\n  privileges: [ read, execute ]\n  resources:\n    - !variable access_key_id\n    - !variable access_key_secret\n",
+                      "policy_sha256": "99dd5680b169825d42e170938f86723b6c5f0f06a564b4629aed56fbf6c614e7",
+                      "finished_at": "2019-09-25T16:40:42.452+00:00",
+                      "id": "cyberarkdemo:policy:ec2_deploy",
+                      "role": "cyberarkdemo:user:admin"
+                    }
+                  ]
+                }
+              ]
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 18 Feb 2020 01:48:07 GMT"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"6ddd63463f5d83b718678ba329ee13f3\""
+              },
+              "Cache-Control": {
+                "type": "string",
+                "default": "max-age=0, private, must-revalidate"
+              },
+              "X-Request-Id": {
+                "type": "string",
+                "default": "acde4887-2d84-448c-9a30-fe436a9f404a"
+              },
+              "X-Runtime": {
+                "type": "string",
+                "default": "0.006684"
               }
             }
           }
@@ -53815,7 +53951,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1668011250"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1668011266"
       },
       "type": "object",
       "properties": {
@@ -53830,7 +53966,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1668011250"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1668011266"
       },
       "type": "object",
       "properties": {
