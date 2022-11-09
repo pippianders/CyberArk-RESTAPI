@@ -199,7 +199,7 @@
         ]
       }
     },
-    "/authn-ldap/service-id/{conjurAccount}/login": {
+    "/api/authn-ldap/service-id/{conjurAccount}/login": {
       "get": {
         "description": "Gets the API key of a user given the username and password via HTTP Basic Authentication.\n\nPasswords are stored in the Conjur database using bcrypt with a work factor of 12. Therefore, login is a fairly expensive operation. However, once the API key is obtained, it may be used to inexpensively obtain access tokens by calling the Authenticate method. An access token is required to use most other parts of the Conjur API.\n\nYour HTTP/REST client probably provides HTTP basic authentication support. For example, curl and all of the Conjur client libraries provide this.\n\nNote that machine roles (Hosts) do not have passwords and do not need to login.",
         "summary": "Login authn-ldap",
@@ -53815,7 +53815,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1668011181"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1668011182"
       },
       "type": "object",
       "properties": {
@@ -53830,7 +53830,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1668011181"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1668011182"
       },
       "type": "object",
       "properties": {
