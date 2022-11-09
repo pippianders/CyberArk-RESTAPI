@@ -1239,11 +1239,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{conjurHostname}}/resources/{{conjurAccount}}?kind=group",
+									"raw": "{{conjurHostname}}/api/resources/{{conjurAccount}}?kind=group",
 									"host": [
 										"{{conjurHostname}}"
 									],
 									"path": [
+										"api",
 										"resources",
 										"{{conjurAccount}}"
 									],
@@ -1361,11 +1362,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{conjurHostname}}/resources/{{conjurAccount}}?kind=host",
+									"raw": "{{conjurHostname}}/api/resources/{{conjurAccount}}?kind=host",
 									"host": [
 										"{{conjurHostname}}"
 									],
 									"path": [
+										"api",
 										"resources",
 										"{{conjurAccount}}"
 									],
@@ -1483,11 +1485,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{conjurHostname}}/resources/{{conjurAccount}}?kind=layer",
+									"raw": "{{conjurHostname}}/api/resources/{{conjurAccount}}?kind=layer",
 									"host": [
 										"{{conjurHostname}}"
 									],
 									"path": [
+										"api",
 										"resources",
 										"{{conjurAccount}}"
 									],
