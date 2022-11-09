@@ -1752,7 +1752,7 @@ paths:
         '200':
           description: ''
           headers: {}
-  /authn-oidc/cyberark/{conjurAccount}/authenticate:
+  /api/authn-oidc/cyberark/{conjurAccount}/authenticate:
     post:
       summary: Authenticate OIDC
       tags:
@@ -40720,7 +40720,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1667849370
+      Reason: Automatically accepted via CyberArk Web Services on 1668011162
     type: object
     properties:
       Reason:
@@ -40730,7 +40730,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1667849370
+      Reason: Rejected automatically by CyberArk Web Services on 1668011162
     type: object
     properties:
       Reason:
