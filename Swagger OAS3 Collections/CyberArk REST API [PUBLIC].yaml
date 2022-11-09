@@ -150,7 +150,7 @@ paths:
           headers: {}
       security:
       - basic: []
-  /authn/{conjurAccount}/login:
+  /api/authn/{conjurAccount}/login:
     get:
       description: >-
         Gets the API key of a user given the username and password via HTTP Basic Authentication.
@@ -40720,7 +40720,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011162
+      Reason: Automatically accepted via CyberArk Web Services on 1668011180
     type: object
     properties:
       Reason:
@@ -40730,7 +40730,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011162
+      Reason: Rejected automatically by CyberArk Web Services on 1668011180
     type: object
     properties:
       Reason:
