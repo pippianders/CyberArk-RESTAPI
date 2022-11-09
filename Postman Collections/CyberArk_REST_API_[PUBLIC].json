@@ -306,7 +306,7 @@
 											"mode": "raw",
 											"raw": ""
 										},
-										"url": "{{conjurHostname}}/authn-ldap/service-id/{{conjurAccount}}/login",
+										"url": "{{conjurHostname}}/api/authn-ldap/service-id/{{conjurAccount}}/login",
 										"description": "Gets the API key of a user given the username and password via HTTP Basic Authentication.\n\nPasswords are stored in the Conjur database using bcrypt with a work factor of 12. Therefore, login is a fairly expensive operation. However, once the API key is obtained, it may be used to inexpensively obtain access tokens by calling the Authenticate method. An access token is required to use most other parts of the Conjur API.\n\nYour HTTP/REST client probably provides HTTP basic authentication support. For example, curl and all of the Conjur client libraries provide this.\n\nNote that machine roles (Hosts) do not have passwords and do not need to login."
 									},
 									"response": [
@@ -408,7 +408,7 @@
 												"type": "text"
 											}
 										],
-										"url": "{{conjurHostname}}/whoami",
+										"url": "{{conjurHostname}}/api/whoami",
 										"description": "WhoAmI provides information about the client making an API request.\n\nIt can be used to help troubleshoot configuration by verifying authentication and the client IP address for audit and network access restrictions. For more information, see [Host Attributes](https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-DAP/Latest/en/Content/Operations/Policy/statement-ref-host.htm#Attribut)."
 									},
 									"response": []
@@ -469,7 +469,7 @@
 											"mode": "raw",
 											"raw": "{{conjurAPIKey}}"
 										},
-										"url": "{{conjurHostname}}/authn/{{conjurAccount}}/{{conjurUsername}}/authenticate",
+										"url": "{{conjurHostname}}/api/authn/{{conjurAccount}}/{{conjurUsername}}/authenticate",
 										"description": "Gets a short-lived access token, which can be used to authenticate requests to (most of) the rest of the Conjur API. A client can obtain an access token by presenting a valid login name and API key.\n\nThe login must be URL encoded. For example, `alice@devops` must be encoded as `alice%40devops`.\n\nFor host authentication, the login is the host ID with the prefix `host/`. For example, the host webserver would login as `host/webserver`, and would be encoded as `host%2Fwebserver`.\n\nFor API usage, the access token is ordinarily passed as an HTTP Authorization “Token” header.\n\n**Note: Base64-encode the JSON Web Token (JWT) returned in the response for use as the {{dapToken}}.**"
 									},
 									"response": []
