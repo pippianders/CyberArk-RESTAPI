@@ -1053,7 +1053,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{conjurHostname}}/info"
+								"url": "{{conjurHostname}}/api/info"
 							},
 							"response": [
 								{
@@ -1131,7 +1131,7 @@
 										"key": "Authorization"
 									}
 								],
-								"url": "{{conjurHostname}}/resources/{{conjurAccount}}"
+								"url": "{{conjurHostname}}/api/resources/{{conjurAccount}}"
 							},
 							"response": [
 								{
