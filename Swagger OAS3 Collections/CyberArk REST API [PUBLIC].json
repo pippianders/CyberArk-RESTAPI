@@ -1420,55 +1420,7 @@
           }
         },
         "security": []
-      }
-    },
-    "/api/policies/{conjurAccount}/policy/root": {
-      "post": {
-        "summary": "AWS authn-iam Policy Append to Root Policy",
-        "tags": [
-          "Policy"
-        ],
-        "operationId": "AWSauthn-iamPolicyAppendtoRootPolicy",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "example": "- !policy\n  id: authn-iam/prod\n  owner: !group /admins\n  body:\n    - !webservice\n\n    - !group clients\n\n    - !permit\n      role: !group clients\n      privileges: [ read, authenticate ]\n      resource: !webservice\n\n- !policy \n  id: myapp\n  owner: !group /admins\n  body:\n  - &variables\n    - !variable database/username\n    - !variable database/password\n\n  # Create a group that will have permission to retrieve variables\n  - !group secrets-users\n\n  # Give the `secrets-users` group permission to retrieve variables\n  - !permit\n    role: !group secrets-users\n    privilege: [ read, execute ]\n    resource: *variables\n  \n  # Create a layer to hold this application's hosts\n  - !layer\n\n  # The host ID needs to match the AWS ARN of the role we wish to authenticate.\n  - !host 978458609324/MyApp\n\n  # Add our host into our layer\n  - !grant\n    role: !layer\n    member: !host 978458609324/MyApp\n\n  # Give the host in our layer permission to retrieve variables\n  - !grant\n    member: !layer\n    role: !group secrets-users\n  \n- !grant\n  role: !group authn-iam/prod/clients\n  member: !host myapp/978458609324/MyApp",
-              "type": "string"
-            }
-          },
-          {
-            "name": "conjurAccount",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/policies/{conjurAccount}/policy/{conjurPolicyID}": {
+      },
       "put": {
         "description": "Loads or replaces a Conjur policy document.\n\nAny policy data which already exists on the server but is **not** explicitly specified in the new policy file **will be deleted**.",
         "summary": "Replace Policy",
@@ -1507,6 +1459,52 @@
           },
           {
             "name": "conjurPolicyID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/policies/{conjurAccount}/policy/root": {
+      "post": {
+        "summary": "AWS authn-iam Policy Append to Root Policy",
+        "tags": [
+          "Policy"
+        ],
+        "operationId": "AWSauthn-iamPolicyAppendtoRootPolicy",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "example": "- !policy\n  id: authn-iam/prod\n  owner: !group /admins\n  body:\n    - !webservice\n\n    - !group clients\n\n    - !permit\n      role: !group clients\n      privileges: [ read, authenticate ]\n      resource: !webservice\n\n- !policy \n  id: myapp\n  owner: !group /admins\n  body:\n  - &variables\n    - !variable database/username\n    - !variable database/password\n\n  # Create a group that will have permission to retrieve variables\n  - !group secrets-users\n\n  # Give the `secrets-users` group permission to retrieve variables\n  - !permit\n    role: !group secrets-users\n    privilege: [ read, execute ]\n    resource: *variables\n  \n  # Create a layer to hold this application's hosts\n  - !layer\n\n  # The host ID needs to match the AWS ARN of the role we wish to authenticate.\n  - !host 978458609324/MyApp\n\n  # Add our host into our layer\n  - !grant\n    role: !layer\n    member: !host 978458609324/MyApp\n\n  # Give the host in our layer permission to retrieve variables\n  - !grant\n    member: !layer\n    role: !group secrets-users\n  \n- !grant\n  role: !group authn-iam/prod/clients\n  member: !host myapp/978458609324/MyApp",
+              "type": "string"
+            }
+          },
+          {
+            "name": "conjurAccount",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1685,7 +1683,7 @@
         "security": []
       }
     },
-    "/secrets": {
+    "/api/secrets": {
       "get": {
         "description": "Fetches multiple secret values in one invocation. It’s faster to fetch secrets in batches than to fetch them one at a time.",
         "summary": "Batch Retrieval",
@@ -1722,7 +1720,7 @@
         "security": []
       }
     },
-    "/secrets/{conjurAccount}/variable/{conjurSecretID}": {
+    "/api/secrets/{conjurAccount}/variable/{conjurSecretID}": {
       "get": {
         "description": "Fetches the value of a secret from the specified Variable. The latest version will be retrieved unless the version parameter is specified. The twenty most recent secret versions are retained.\n\nThe secret data is returned in the response body.\n\nNote: Conjur will allow you to add a secret to any resource, but the best practice is to store and retrieve secret data only using Variable resources.",
         "summary": "Retrieve A Secret",
@@ -53817,7 +53815,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1668011227"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1668011242"
       },
       "type": "object",
       "properties": {
@@ -53832,7 +53830,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1668011227"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1668011242"
       },
       "type": "object",
       "properties": {
