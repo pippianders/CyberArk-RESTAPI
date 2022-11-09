@@ -79,7 +79,7 @@
         }
       }
     },
-    "/authn/{conjurAccount}/api_key": {
+    "/api/authn/{conjurAccount}/api_key": {
       "put": {
         "description": "Any role can rotate its own API key. The name and password or current API key of the role must be provided via HTTP Basic Authorization.\n\nNote that the body of the request must be the empty string.",
         "summary": "Rotate Your Own API Key",
@@ -92,6 +92,47 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "conjurAccount",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/authn/{conjurAccount}/api_key": {
+      "put": {
+        "description": "Rotates the API key of a host you can update.\n\nNote that the body of the request must be the empty string.",
+        "summary": "Rotate A Host API Key",
+        "tags": [
+          "Rotate"
+        ],
+        "operationId": "RotateAHostAPIKey",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "role",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "hostID would be the identity without the prefix host/"
+          },
           {
             "name": "conjurAccount",
             "in": "path",
@@ -382,7 +423,7 @@
         "security": []
       }
     },
-    "/authn/{conjurAccount}/password": {
+    "/api/authn/{conjurAccount}/password": {
       "put": {
         "description": "Changes a user’s password. You must provide the login name and current password or API key of the user whose password is to be updated in an HTTP Basic Authentication header. Also replaces the user’s API key with a new securely generated random value. You can fetch the new API key by using Login.\n\nYour HTTP/REST client probably provides HTTP basic authentication support. For example, curl and all of the Conjur client libraries provide this.\n\nNote that machine roles (Hosts) do not have passwords. They authenticate using their API keys, while passwords are only used by human users.",
         "summary": "Change Your Password",
@@ -53815,7 +53856,7 @@
     "ConfirmRequestRequest": {
       "title": "ConfirmRequestRequest",
       "example": {
-        "Reason": "Automatically accepted via CyberArk Web Services on 1668011189"
+        "Reason": "Automatically accepted via CyberArk Web Services on 1668011201"
       },
       "type": "object",
       "properties": {
@@ -53830,7 +53871,7 @@
     "RejectRequestRequest": {
       "title": "RejectRequestRequest",
       "example": {
-        "Reason": "Rejected automatically by CyberArk Web Services on 1668011189"
+        "Reason": "Rejected automatically by CyberArk Web Services on 1668011201"
       },
       "type": "object",
       "properties": {
