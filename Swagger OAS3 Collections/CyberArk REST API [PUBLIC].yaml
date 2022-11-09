@@ -124,7 +124,7 @@ paths:
         '200':
           description: ''
           headers: {}
-  /authn/{conjurAccount}/api_key:
+  /api/authn/{conjurAccount}/api_key:
     put:
       description: >-
         Any role can rotate its own API key. The name and password or current API key of the role must be provided via HTTP Basic Authorization.
@@ -139,6 +139,37 @@ paths:
       produces:
       - application/json
       parameters:
+      - name: conjurAccount
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security:
+      - basic: []
+  /authn/{conjurAccount}/api_key:
+    put:
+      description: >-
+        Rotates the API key of a host you can update.
+
+
+        Note that the body of the request must be the empty string.
+      summary: Rotate A Host API Key
+      tags:
+      - Rotate
+      operationId: RotateAHostAPIKey
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: role
+        in: query
+        required: true
+        type: string
+        description: hostID would be the identity without the prefix host/
       - name: conjurAccount
         in: path
         required: true
@@ -40720,7 +40751,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011193
+      Reason: Automatically accepted via CyberArk Web Services on 1668011201
     type: object
     properties:
       Reason:
@@ -40730,7 +40761,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011193
+      Reason: Rejected automatically by CyberArk Web Services on 1668011201
     type: object
     properties:
       Reason:
