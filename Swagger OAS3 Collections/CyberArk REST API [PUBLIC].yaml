@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: '1.0'
   title: CyberArk REST API [PUBLIC]
-  description: "All available requests in CyberArk Privileged Account Security Web Services\n\n**Last Updated Version:** v12.6\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nThis collection is backed up at [https://github.com/infamousjoeg/CyberArk-RESTAPI](https://github.com/infamousjoeg/CyberArk-RESTAPI).\n\n## New Features & Additions\n\n- Added Conjur Cloud User Authentication using CyberArk Identity\n- Added CyberArk Identity SCIM REST API (thanks Joe Strickland)\n- Removed deprecated Endpoint Privilege Manager REST API requests\n- Nested Privileged Access Manager endpoints for easier product visibility\n    \n\nHappy automating!\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Community Tools\n\n- [psPAS](https://github.com/pspete/psPAS) - PowerShell Module for CyberArk's REST API\n- [CredentialRetriever](https://github.com/pspete/CredentialRetriever) - PowerShell Module for CyberArk's Application Access Manager (AAM)\n- [pyAIM](https://github.com/infamousjoeg/pyAIM) - Python Client Library for CyberArk's Application Access Manager (AAM)\n    \n\n## Code Examples\n\n- [cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)\n- [infamousjoeg on GitHub](https://github.com/infamousjoeg?tab=repositories)\n- [CyberArk's Automation Greatest Hits (Awesome List of Automation)](https://cybr.rocks/greatesthits)\n    \n\n## YouTube Videos Playlist\n\n- [CyberArk Videos Playlist Curated by InfamousJoeG](https://www.youtube.com/playlist?list=PL-p_9AwMQDmkS6rCXQrINn0Xc7dv73dWU)\n    \n\n## Maintainer\n\n[Joe Garcia](https://github.com/infamousjoeg)\n\n[Buy me a coffee](https://www.buymeacoffee.com/infamousjoeg)\n\n## Status Codes\n\n| Status Name | Status Code | Status Description |\n| --- | --- | --- |\n| Success | 200 | The request succeeded. The actual response will depend on the request method used. |\n| Created | 201 | The request was fulfilled and resulted in a new resource being created. |\n| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |\n| Unauthorized | 401 | The request requires user authentication. |\n| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |\n| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |\n| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |\n| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing. This will cause known issues._"
+  description: "All available requests in CyberArk Privileged Account Security Web Services\n\n**Last Updated Version:** v13.0\n\n# THIS IS UNOFFICIAL DOCUMENTATION\n\nThis collection is backed up at [https://github.com/infamousjoeg/CyberArk-RESTAPI](https://github.com/infamousjoeg/CyberArk-RESTAPI).\n\n## New Features & Additions\n\n- Added Authentication to CyberArk Identity\n\nHappy automating!\n\n## Getting Started Guide\n\n[Getting Started with REST Using Postman](https://github.com/infamousjoeg/CyberArk-RESTAPI/blob/master/Getting%20Started%20with%20REST%20Using%20Postman.pdf) (PDF)\n\n## Community Tools\n\n- [psPAS](https://github.com/pspete/psPAS) - PowerShell Module for CyberArk's REST API\n- [CredentialRetriever](https://github.com/pspete/CredentialRetriever) - PowerShell Module for CyberArk's Application Access Manager (AAM)\n- [pyAIM](https://github.com/infamousjoeg/pyAIM) - Python Client Library for CyberArk's Application Access Manager (AAM)\n    \n\n## Code Examples\n\n- [cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)\n- [infamousjoeg on GitHub](https://github.com/infamousjoeg?tab=repositories)\n- [CyberArk's Automation Greatest Hits (Awesome List of Automation)](https://cybr.rocks/greatesthits)\n    \n\n## YouTube Videos Playlist\n\n- [CyberArk Videos Playlist Curated by InfamousJoeG](https://www.youtube.com/playlist?list=PL-p_9AwMQDmkS6rCXQrINn0Xc7dv73dWU)\n    \n\n## Maintainer\n\n[Joe Garcia](https://github.com/infamousjoeg)\n\n[Buy me a coffee](https://www.buymeacoffee.com/infamousjoeg)\n\n## Status Codes\n\n| Status Name | Status Code | Status Description |\n| --- | --- | --- |\n| Success | 200 | The request succeeded. The actual response will depend on the request method used. |\n| Created | 201 | The request was fulfilled and resulted in a new resource being created. |\n| Bad Request | 400 | The request could not be understood by the server due to incorrect syntax. |\n| Unauthorized | 401 | The request requires user authentication. |\n| Forbidden | 403 | The server received and understood the request, but will not fulfill it. Authorization will not help and the request MUST NOT be repeated. |\n| Not Found | 404 | The server did not find anything that matches the Request-URI. No indication is given of whether the condition is temporary or permanent. |\n| Conflict | 409 | The request could not be completed due to a conflict with the current state of the resource. |\n| Internal Server Error | 500 | The server encountered an unexpected condition which prevented it from fulfilling the request. |\n\n_NOTE: If you are having issues with DEL or PUT methods, make sure that your Password Vault Web Access (PVWA) Server's IIS instance does not include WebDav Publishing. This will cause known issues._"
   contact: {}
 host: example.com
 basePath: /
@@ -411,6 +411,193 @@ paths:
           headers: {}
       security:
       - basic: []
+  /api/authn/{conjurAccount}/{conjurHostID}/authenticate:
+    post:
+      description: >-
+        Gets a short-lived access token, which can be used to authenticate requests to (most of) the rest of the Conjur API. A client can obtain an access token by presenting a valid login name and API key.
+
+
+        The login must be URL encoded. For example, `alice@devops` must be encoded as `alice%40devops`.
+
+
+        For host authentication, the login is the host ID with the prefix `host/`. For example, the host webserver would login as `host/webserver`, and would be encoded as `host%2Fwebserver`.
+
+
+        For API usage, the access token is ordinarily passed as an HTTP Authorization “Token” header.
+
+
+        **Note: Base64-encode the JSON Web Token (JWT) returned in the response for use as the {{dapToken}}.**
+      summary: Authenticate Host Identity
+      tags:
+      - Authentication
+      operationId: AuthenticateHostIdentity
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: false
+        enum:
+        - application/json
+        type: string
+        description: ''
+      - name: Accept-Encoding
+        in: header
+        required: true
+        type: string
+        description: Returns token base64-encoded
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          example: '{{conjurAPIKey}}'
+          type: string
+      - name: conjurAccount
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: conjurHostID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
+  /api/authn-oidc/cyberark/{conjurAccount}/authenticate:
+    post:
+      summary: Authenticate OIDC
+      tags:
+      - Authentication
+      operationId: AuthenticateOIDC
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - name: Accept-Encoding
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: id_token
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: conjurAccount
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /Security/StartAuthentication:
+    post:
+      summary: StartAuthentication
+      tags:
+      - Authentication
+      operationId: StartAuthentication
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: X-IDAP-NATIVE-CLIENT
+        in: header
+        required: true
+        type: boolean
+        description: ''
+      - name: Content-Type
+        in: header
+        required: false
+        enum:
+        - application/json
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/StartAuthenticationRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /UserMgmt/SignOutCurrentSession:
+    post:
+      summary: Sign Out from Current Session
+      tags:
+      - Authentication
+      operationId: SignOutfromCurrentSession
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: X-IDAP-NATIVE-CLIENT
+        in: header
+        required: true
+        type: boolean
+        description: ''
+      - name: Content-Type
+        in: header
+        required: false
+        enum:
+        - application/json
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /Security/AdvanceAuthentication:
+    post:
+      summary: Send email with code
+      tags:
+      - Authentication
+      operationId: Sendemailwithcode
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: X-IDAP-NATIVE-CLIENT
+        in: header
+        required: true
+        type: boolean
+        description: ''
+      - name: Content-Type
+        in: header
+        required: false
+        enum:
+        - application/json
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/SendemailwithcodeRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
   /oauth2/token/{identitySCIMAppID}:
     post:
       description: >-
@@ -1684,220 +1871,6 @@ paths:
               type: string
               default: '0.008289'
       security: []
-  /resources/{conjurAccount}:
-    get:
-      summary: List Policies
-      tags:
-      - Self-Hosted Enterprise
-      operationId: ListPolicies
-      deprecated: false
-      produces:
-      - application/json; charset=utf-8
-      parameters:
-      - name: kind
-        in: query
-        required: true
-        type: string
-        description: ''
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: conjurAccount
-        in: path
-        required: true
-        type: string
-        description: ''
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: array
-            default: ''
-            items:
-              $ref: '#/definitions/200OK3'
-          examples:
-            application/json; charset=utf-8:
-            - created_at: 2019-09-25T16:38:16.426+00:00
-              id: cyberarkdemo:policy:root
-              owner: cyberarkdemo:user:admin
-              permissions: []
-              annotations: []
-              policy_versions:
-              - version: 1
-                created_at: 2019-09-25T16:38:16.426+00:00
-                policy_text: >
-                  - !policy
-                    id: ec2_deploy
-                policy_sha256: 074ae39f5be04db36ad2bb236c802963a4aa08d54501e941b99f8f2196bc2d62
-                finished_at: 2019-09-25T16:38:16.559+00:00
-                id: cyberarkdemo:policy:root
-                role: cyberarkdemo:user:admin
-            - created_at: 2019-09-25T16:38:16.426+00:00
-              id: cyberarkdemo:policy:ec2_deploy
-              owner: cyberarkdemo:user:admin
-              policy: cyberarkdemo:policy:root
-              permissions: []
-              annotations: []
-              policy_versions:
-              - version: 1
-                created_at: 2019-09-25T16:40:42.340+00:00
-                policy_text: >
-                  - !host
-                    id: ansible-tower
-                    annotations:
-                      ansible: true
-
-                  - !variable access_key_id
-
-                  - !variable access_key_secret
-
-
-                  - !permit
-                    role: !host ansible-tower
-                    privileges: [ read, execute ]
-                    resources:
-                      - !variable access_key_id
-                      - !variable access_key_secret
-                policy_sha256: 99dd5680b169825d42e170938f86723b6c5f0f06a564b4629aed56fbf6c614e7
-                finished_at: 2019-09-25T16:40:42.452+00:00
-                id: cyberarkdemo:policy:ec2_deploy
-                role: cyberarkdemo:user:admin
-          headers:
-            Server:
-              type: string
-              default: nginx
-            Date:
-              type: string
-              default: Tue, 18 Feb 2020 01:48:07 GMT
-            Transfer-Encoding:
-              type: string
-              default: chunked
-            Connection:
-              type: string
-              default: keep-alive
-            X-Frame-Options:
-              type: string
-              default: SAMEORIGIN
-            X-XSS-Protection:
-              type: string
-              default: 1; mode=block
-            X-Content-Type-Options:
-              type: string
-              default: nosniff
-            ETag:
-              type: string
-              default: W/"6ddd63463f5d83b718678ba329ee13f3"
-            Cache-Control:
-              type: string
-              default: max-age=0, private, must-revalidate
-            X-Request-Id:
-              type: string
-              default: acde4887-2d84-448c-9a30-fe436a9f404a
-            X-Runtime:
-              type: string
-              default: '0.006684'
-      security: []
-  /Security/StartAuthentication:
-    post:
-      summary: StartAuthentication
-      tags:
-      - Authenticate
-      operationId: StartAuthentication
-      deprecated: false
-      produces:
-      - application/json
-      consumes:
-      - application/json
-      parameters:
-      - name: X-IDAP-NATIVE-CLIENT
-        in: header
-        required: true
-        type: boolean
-        description: ''
-      - name: Content-Type
-        in: header
-        required: false
-        enum:
-        - application/json
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/StartAuthenticationRequest'
-      responses:
-        '200':
-          description: ''
-          headers: {}
-  /Security/AdvanceAuthentication:
-    post:
-      summary: Password authentication
-      tags:
-      - Authenticate
-      operationId: Passwordauthentication
-      deprecated: false
-      produces:
-      - application/json
-      consumes:
-      - application/json
-      parameters:
-      - name: X-IDAP-NATIVE-CLIENT
-        in: header
-        required: true
-        type: boolean
-        description: ''
-      - name: Content-Type
-        in: header
-        required: false
-        enum:
-        - application/json
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/PasswordauthenticationRequest'
-      responses:
-        '200':
-          description: ''
-          headers: {}
-  /api/authn-oidc/cyberark/{conjurAccount}/authenticate:
-    post:
-      summary: Authenticate OIDC
-      tags:
-      - Authenticate
-      operationId: AuthenticateOIDC
-      deprecated: false
-      produces:
-      - application/json
-      consumes:
-      - application/x-www-form-urlencoded
-      parameters:
-      - name: Accept-Encoding
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: id_token
-        in: formData
-        required: true
-        type: string
-        description: ''
-      - name: conjurAccount
-        in: path
-        required: true
-        type: string
-        description: ''
-      responses:
-        '200':
-          description: ''
-          headers: {}
   /scim/v2/containers:
     get:
       description: "This endpoint allows you to obtain information relating to all containers (safes) in the vault.\n\n#### Permissions Required\n\n*   Requires individual Container (Safe) Audit Permissions\n    \n\n#### Query Parameters\n\n*   **Index:**\n    *   Returns resources specified by an index. Useful when there are large number of returned resources to control pagination.\n        *   startIndex: initial starting offset for returned resources.\n        *   count: total count of returned resources.\n    *   Example: Return Containers 10 through 13 using index.\n        *   `GET https://myTenantUrl/scim/v2/Containers?startIndex=10&count=5`\n*   **Sort:**\n    *   Returns all resources sorted either ascending (default) or descending based on a resource attribute.\n        *   sortBy: resource attribute to sort by.\n        *   sortOrder: ascending (default) or descending.\n    *   Example: Return Containers in ascending order by Container name.\n        *   `GET https://myTenantUrl/scim/v2/Containers?sortBy=name&sortOrder=ascending`\n*   **Filter:**\n    *   Returns a single resource specified by the filter in the response.\n    *   Example: Return a single Container based on the *name* filter.\n        *   `GET https://myTenantUrl/scim/v2/Containers?filter=name eq \"myContainerName\"`\n*   **Attributes:**\n    *   Returns only the specified attributes in the JSON response.\n    *   Example: Return all Containers with only the *name* attribute.\n        *   `GET https://myTenantUrl/scim/v2/Containers&attributes=name`"
@@ -22975,20 +22948,76 @@ definitions:
     - permissions
     - annotations
     - secrets
-  StartAuthenticationRequest:
-    title: StartAuthenticationRequest
+  StartOOBAuthenticationRequest:
+    title: StartOOBAuthenticationRequest
     example:
-      User: '{{identityUsername}}'
-      Version: '1.0'
+      TenantId: '{{identityTenantId}}'
+      SessionId: '{{identitySessionID}}'
+      MechanismId: '{{identityMechanismID}}'
+      Action: StartOOB
     type: object
     properties:
-      User:
+      TenantId:
         type: string
-      Version:
+      SessionId:
+        type: string
+      MechanismId:
+        type: string
+      Action:
         type: string
     required:
-    - User
-    - Version
+    - TenantId
+    - SessionId
+    - MechanismId
+    - Action
+  PollOOBAuthenticationRequest:
+    title: PollOOBAuthenticationRequest
+    example:
+      TenantId: '{{identityTenantId}}'
+      SessionId: '{{identitySessionID}}'
+      MechanismId: '{{identityMechanismID}}'
+      Action: Poll
+    type: object
+    properties:
+      TenantId:
+        type: string
+      SessionId:
+        type: string
+      MechanismId:
+        type: string
+      Action:
+        type: string
+    required:
+    - TenantId
+    - SessionId
+    - MechanismId
+    - Action
+  AnswerOOBAuthenticationRequest:
+    title: AnswerOOBAuthenticationRequest
+    example:
+      TenantId: '{{identityTenantId}}'
+      SessionId: '{{identitySessionID}}'
+      MechanismId: '{{identityMechanismID}}'
+      Action: Answer
+      Answer: '123456'
+    type: object
+    properties:
+      TenantId:
+        type: string
+      SessionId:
+        type: string
+      MechanismId:
+        type: string
+      Action:
+        type: string
+      Answer:
+        type: string
+    required:
+    - TenantId
+    - SessionId
+    - MechanismId
+    - Action
+    - Answer
   PasswordauthenticationRequest:
     title: PasswordauthenticationRequest
     example:
@@ -23011,6 +23040,88 @@ definitions:
     - MechanismId
     - Action
     - Answer
+  SecurityQuestionAuthentication(Single)Request:
+    title: SecurityQuestionAuthentication(Single)Request
+    example:
+      TenantId: '{{identityTenantId}}'
+      SessionId: '{{identitySessionID}}'
+      MechanismId: '{{identityMechanismID}}'
+      Action: Answer
+      Answer: SecurityQuestionAnswer
+    type: object
+    properties:
+      TenantId:
+        type: string
+      SessionId:
+        type: string
+      MechanismId:
+        type: string
+      Action:
+        type: string
+      Answer:
+        type: string
+    required:
+    - TenantId
+    - SessionId
+    - MechanismId
+    - Action
+    - Answer
+  SecurityQuestionAuthentication(Multiple)Request:
+    title: SecurityQuestionAuthentication(Multiple)Request
+    example:
+      TenantId: '{{identityTenantId}}'
+      SessionId: '{{identitySessionID}}'
+      MechanismId: '{{identityMechanismID}}'
+      Action: Answer
+      Answer:
+        u_a4ed8e81-8e9b-416b-bc00-44ed5bf87744: Arnold
+        u_144b2e18-9276-49ed-b67a-9e28692f4375: Smokey
+    type: object
+    properties:
+      TenantId:
+        type: string
+      SessionId:
+        type: string
+      MechanismId:
+        type: string
+      Action:
+        type: string
+      Answer:
+        $ref: '#/definitions/Answer'
+    required:
+    - TenantId
+    - SessionId
+    - MechanismId
+    - Action
+    - Answer
+  Answer:
+    title: Answer
+    example:
+      u_a4ed8e81-8e9b-416b-bc00-44ed5bf87744: Arnold
+      u_144b2e18-9276-49ed-b67a-9e28692f4375: Smokey
+    type: object
+    properties:
+      u_a4ed8e81-8e9b-416b-bc00-44ed5bf87744:
+        type: string
+      u_144b2e18-9276-49ed-b67a-9e28692f4375:
+        type: string
+    required:
+    - u_a4ed8e81-8e9b-416b-bc00-44ed5bf87744
+    - u_144b2e18-9276-49ed-b67a-9e28692f4375
+  StartAuthenticationRequest:
+    title: StartAuthenticationRequest
+    example:
+      User: '{{identityUsername}}'
+      Version: '1.0'
+    type: object
+    properties:
+      User:
+        type: string
+      Version:
+        type: string
+    required:
+    - User
+    - Version
   SendemailwithcodeRequest:
     title: SendemailwithcodeRequest
     example:
@@ -40835,7 +40946,7 @@ definitions:
   ConfirmRequestRequest:
     title: ConfirmRequestRequest
     example:
-      Reason: Automatically accepted via CyberArk Web Services on 1668011269
+      Reason: Automatically accepted via CyberArk Web Services on 1678810671
     type: object
     properties:
       Reason:
@@ -40845,7 +40956,7 @@ definitions:
   RejectRequestRequest:
     title: RejectRequestRequest
     example:
-      Reason: Rejected automatically by CyberArk Web Services on 1668011269
+      Reason: Rejected automatically by CyberArk Web Services on 1678810671
     type: object
     properties:
       Reason:
@@ -42529,8 +42640,16 @@ tags:
 - name: Policy
 - name: Secrets
 - name: Self-Hosted Enterprise
-- name: Authenticate
-  description: Here are the requests that handle the different types of authentication.
+- name: Out-of-Band Authentication
+  description: >-
+    Some mechanisms require the user to interact with a system outside of your client. These are known as out-of-band (OOB) mechanisms.
+
+
+    Once the user has chosen an OOB mechanism, call `/Security/AdvanceAuthentication` with the `Action` set to `StartOOB`. This officially begins the waiting period in which the user must either approve the request or provide a code.
+
+
+    While you wait for the user to take action, perform a "short poll" on `/Security/AdvanceAuthentication`. You build the poll request by simply changing the original request's `Action` from `StartOOB` to `Poll`.
+- name: Advance Authentication
 - name: Container (Safe) Management
   description: "CyberArk Identity allows you to manage Container (Safe) objects in the Vault through the scim/v2/Containers/ endpoint. Supported requests include:\n\n*   GET: access containers (safes) information\n*   POST: add new containers (safes)\n*   PUT: update the information of existing containers (safes)\n*   DELETE: delete containers (safes)\n    \n\nThe following should be included in any request to the \"Containers\" endpoint:  \n`\"schemas\": [ \"urn:ietf:params:scim:schemas:pam:1.0:Container\" ],`\n\n### **Container Attributes**\n\n| **Attribute** | **Description** | **Data Type** | **Filter?** | **Sort By?** |\n| --- | --- | --- | --- | --- |\n| name | Container Name | String | Supported | Supported |\n| displayName | Container Display Name | String | Supported | Supported |\n| type | Resource Type | String | Not Supported | Supported (2) |\n| **owner** | Container Owner | Complex | \\- | \\- |\n| *.value* | Container Owner User Id | String | Supported | Not Supported |\n| *.$ref* | Container Owner Reference Url | String | Supported (1) | Not Supported |\n| *.display* | Container Owner Display Name | String | Supported | Not Supported |\n| **privilegedData** | Privileged Data | Complex Array | \\- | \\- |\n| *.value* | Privileged Data Id | String | Supported | Not Supported |\n| *.$ref* | Privileged Data Reference Url | String | Supported (1) | Not Supported |\n| *.display* | Privileged Data Display Name | String | Supported | Not Supported |\n| schemas | Container Schemas | String Array | Not Supported | Not Supported |\n| id | Unique Container Id | String | Supported | Supported |\n| **meta** | Container Metadata | Complex | \\- | \\- |\n| *.resourceType* | Static - \"Container\" | String | Supported (2) | Supported (2) |\n| *.created* | Date Created - YYYY-MM-DDTHH:MM:SS.#######Z | String | Supported | Supported |\n| *.lastModified* | Date Last Modified - YYYY-MM-DDTHH:MM:SS.#######Z | String | Supported | Supported |\n| *.location* | Resource Location URL | String | Supported | Not Supported |\n| **urn:ietf:params:scim:schemas:cyberark:1.0:Safe** | CyberArk Container Identifier | Complex | \\- | \\- |\n| *.NumberOfDaysRetention* | Previous Version Privileged Data Retention Days | Integer | Not Supported | Not Supported |\n| *.ManagingCPM* | CPM Assigned to Container | String | Not Supported | Not Supported |\n\n#### Notes\n\n*   *(1) You should enclose the attribute path in quotes to avoid Url encoding issues (e.g. \"owner.$ref\")*\n*   *(2) Although these are supported, the returned results do not differ from a standard request as the value is not unique per Container*"
 - name: Container (Safe) Permissions Management
