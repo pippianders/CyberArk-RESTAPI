@@ -2,17 +2,7 @@
 
 All available requests in CyberArk Privileged Account Security Web Services
 
-**Last Updated Version:** v13.0
-
-# THIS IS UNOFFICIAL DOCUMENTATION
-
-## New Features & Additions
-
-*   Removed all v1 API endpoints
-*   Added known undocumented API endpoints
-*   Updated Environment template for easier use
-*   PKI & PKIPN Authentication
-    
+# THIS IS UNOFFICIAL DOCUMENTATION 
 
 Happy automating!
 
