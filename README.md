@@ -2,7 +2,7 @@
 
 All available requests in CyberArk Privileged Account Security Web Services
 
-**Last Updated Version:** v12.2
+**Last Updated Version:** v13.0
 
 # THIS IS UNOFFICIAL DOCUMENTATION
 
